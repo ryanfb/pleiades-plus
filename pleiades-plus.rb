@@ -2,6 +2,8 @@
 
 require 'csv'
 
+distance_threshold = 8.0
+
 places_csv, names_csv, locations_csv, geonames_csv = ARGV
 
 places = {}
@@ -102,19 +104,19 @@ names = []
 
 pleiades_names.each_key do |name|
 	unless geonames_names[name].nil?
-		puts name
-		puts "Pleiades:"
+		$stderr.puts name
+		$stderr.puts "Pleiades:"
 		pleiades_names[name].each do |pid|
 			unless places[pid].nil?
-				puts "#{places[pid]["title"]}:\n\t#{places[pid]["description"]}\n\t#{places[pid]["bbox"]}"
+				$stderr.puts "#{places[pid]["title"]}:\n\t#{places[pid]["description"]}\n\t#{places[pid]["bbox"]}"
 				unless places[pid]["bbox"].nil?
-					puts is_point?(places[pid]["bbox"]) ? "\tpoint" : "\tbbox"
+					$stderr.puts is_point?(places[pid]["bbox"]) ? "\tpoint" : "\tbbox"
 				end
 			end
 		end
-		puts "GeoNames:"
+		$stderr.puts "GeoNames:"
 		geonames_names[name].each do |gid|
-			puts geonames[gid].inspect
+			$stderr.puts geonames[gid].inspect
 		end
 
 		pleiades_names[name].each do |pid|
@@ -124,14 +126,21 @@ pleiades_names.each_key do |name|
 						if is_point?(places[pid]["bbox"])
 							coords = bbox_to_coords(places[pid]["bbox"])
 							distance = haversine_distance(coords[1], coords[0], geonames[gid]["latitude"], geonames[gid]["longitude"])
-							puts "#{pid} <-> #{gid} distance: #{distance}"
+							$stderr.puts "#{pid} <-> #{gid} distance: #{distance}"
+							if distance < distance_threshold
+								puts "#{pid},#{gid}"
+							end
 						else # bbox
 							if bbox_contains?(places[pid]["bbox"],geonames[gid]["latitude"], geonames[gid]["longitude"])
-								puts "#{pid} contains #{gid}"
+								$stderr.puts "#{pid} contains #{gid}"
+								puts "#{pid},#{gid}"
 							else
 								distance = haversine_distance(places[pid]["reprLat"].to_f, places[pid]["reprLong"].to_f, geonames[gid]["latitude"], geonames[gid]["longitude"])
-								puts "#{pid} does not contain #{gid}"
-								puts "#{pid} <-> #{gid} distance: #{distance}"
+								$stderr.puts "#{pid} does not contain #{gid}"
+								$stderr.puts "#{pid} <-> #{gid} distance: #{distance}"
+								if distance < distance_threshold
+									puts "#{pid},#{gid}"
+								end
 							end
 						end
 					end
@@ -139,7 +148,7 @@ pleiades_names.each_key do |name|
 			end
 		end
 
-		puts ""
+		$stderr.puts ""
 	end
 end
 
@@ -155,7 +164,7 @@ end
 	# end
 # end
 
-puts places.length
-puts pleiades_names.length
-puts geonames.length
-puts geonames_names.length
+$stderr.puts places.length
+$stderr.puts pleiades_names.length
+$stderr.puts geonames.length
+$stderr.puts geonames_names.length
