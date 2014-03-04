@@ -3,44 +3,10 @@ echo Creating pleiades+
 echo -------------
 
 echo downloading Pleiades files
-wget http://atlantides.org/downloads/pleiades/dumps/pleiades-locations-latest.csv.gz -nc -O /tmp/pleiades-locations-latest.csv.gz 
-
-echo unzipping Pleiades files
-gunzip -f /tmp/pleiades-locations-latest.csv.gz
-
-echo create pleaides table
-# /Library/PostgreSQL/8.4/bin/psql -Upostgres -p5433 -dGAP -c "
-# DROP TABLE pleiades_places_latest;
-# CREATE TABLE pleiades_places_latest
-# (
-#   created character varying,
-#   creators character varying,
-#   description character varying,
-#   geometry character varying,
-#   id character varying,
-#   location_precision character varying,
-#   max_date float,
-#   min_date float,
-#   modified character varying,
-#   path character varying,
-#   pid character varying,
-#   reprLat character varying,
-#   reprLatLong character varying,
-#   reprLong character varying,
-#   time_periods character varying,
-#   timePeriodsKeys character varying,
-#   timePeriodsRange character varying,
-#   title character varying,
-#   uid character varying NOT NULL,
-#   CONSTRAINT pleaides_places_pk PRIMARY KEY (uid) 
-# )
-# WITH (
-#   OIDS=FALSE
-# );
-# ALTER TABLE pleiades_places_latest OWNER TO postgres;"
-
-echo import data
-#/Library/PostgreSQL/8.4/bin/psql -Upostgres -p5433 -dGAP -c "COPY pleiades_places_latest from '/tmp/pleiades-locations-latest.csv' with CSV header"
+for i in locations names places; do
+  wget http://atlantides.org/downloads/pleiades/dumps/pleiades-${i}-latest.csv.gz -nc 
+  gunzip -f pleiades-${i}-latest.csv.gz
+done
 
 echo download geonames files
 mkdir /tmp/geonames
@@ -82,14 +48,14 @@ done
 #BE Belgium
 #NL Netherlands
 
-
 echo unzip geonames
 for i in /tmp/geonames/*.zip; do
   unzip -o $i -d /tmp/geonames
 done
 
+cat /tmp/geonames/*.txt > all-geonames.txt
 
-
+./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv all-geonames.txt | sort | uniq > pleiades-plus.csv
 
 
 
