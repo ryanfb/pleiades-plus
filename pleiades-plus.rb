@@ -103,7 +103,7 @@ end
 names = []
 
 pleiades_names.each_key do |name|
-	unless geonames_names[name].nil?
+	if (!name.nil?) && (!geonames_names[name].nil?) && (name.strip.length > 0)
 		$stderr.puts name
 		$stderr.puts "Pleiades:"
 		pleiades_names[name].each do |pid|
