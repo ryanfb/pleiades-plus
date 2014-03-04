@@ -1,87 +1,92 @@
-#!bin/bash
+#!/bin/bash
 echo Creating pleiades+
 echo -------------
 
 echo downloading Pleiades files
-#wget http://atlantides.org/downloads/pleiades/dumps/pleiades-locations-latest.csv.gz -nc -O /tmp/pleiades-locations-latest.csv.gz 
+wget http://atlantides.org/downloads/pleiades/dumps/pleiades-locations-latest.csv.gz -nc -O /tmp/pleiades-locations-latest.csv.gz 
 
 echo unzipping Pleiades files
-#gunzip -f /tmp/pleiades-locations-latest.csv.gz
+gunzip -f /tmp/pleiades-locations-latest.csv.gz
 
 echo create pleaides table
-/Library/PostgreSQL/8.4/bin/psql -Upostgres -p5433 -dGAP -c "
-DROP TABLE pleiades_places_latest;
-CREATE TABLE pleiades_places_latest
-(
-  created character varying,
-  creators character varying,
-  description character varying,
-  geometry character varying,
-  id character varying,
-  location_precision character varying,
-  max_date float,
-  min_date float,
-  modified character varying,
-  path character varying,
-  pid character varying,
-  reprLat character varying,
-  reprLatLong character varying,
-  reprLong character varying,
-  time_periods character varying,
-  timePeriodsKeys character varying,
-  timePeriodsRange character varying,
-  title character varying,
-  uid character varying NOT NULL,
-  CONSTRAINT pleaides_places_pk PRIMARY KEY (uid) 
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE pleiades_places_latest OWNER TO postgres;"
+# /Library/PostgreSQL/8.4/bin/psql -Upostgres -p5433 -dGAP -c "
+# DROP TABLE pleiades_places_latest;
+# CREATE TABLE pleiades_places_latest
+# (
+#   created character varying,
+#   creators character varying,
+#   description character varying,
+#   geometry character varying,
+#   id character varying,
+#   location_precision character varying,
+#   max_date float,
+#   min_date float,
+#   modified character varying,
+#   path character varying,
+#   pid character varying,
+#   reprLat character varying,
+#   reprLatLong character varying,
+#   reprLong character varying,
+#   time_periods character varying,
+#   timePeriodsKeys character varying,
+#   timePeriodsRange character varying,
+#   title character varying,
+#   uid character varying NOT NULL,
+#   CONSTRAINT pleaides_places_pk PRIMARY KEY (uid) 
+# )
+# WITH (
+#   OIDS=FALSE
+# );
+# ALTER TABLE pleiades_places_latest OWNER TO postgres;"
 
 echo import data
 #/Library/PostgreSQL/8.4/bin/psql -Upostgres -p5433 -dGAP -c "COPY pleiades_places_latest from '/tmp/pleiades-locations-latest.csv' with CSV header"
 
 echo download geonames files
 mkdir /tmp/geonames
-wget http://download.geonames.org/export/dump/AL.zip -nc -O /tmp/geonames/AL.zip #Albania
-wget http://download.geonames.org/export/dump/BA.zip -nc -O /tmp/geonames/BA.zip #Bosnia
-wget http://download.geonames.org/export/dump/CY.zip -nc -O /tmp/geonames/CY.zip #Cyprus
-wget http://download.geonames.org/export/dump/DZ.zip -nc -O /tmp/geonames/DZ.zip #Algeria
-wget http://download.geonames.org/export/dump/EG.zip -nc -O /tmp/geonames/EG.zip #Egypt
-wget http://download.geonames.org/export/dump/ES.zip -nc -O /tmp/geonames/ES.zip #Spain
-wget http://download.geonames.org/export/dump/FR.zip -nc -O /tmp/geonames/FR.zip #France
-wget http://download.geonames.org/export/dump/GR.zip -nc -O /tmp/geonames/GR.zip #Greece
-wget http://download.geonames.org/export/dump/HR.zip -nc -O /tmp/geonames/HR.zip #Croatia
-wget http://download.geonames.org/export/dump/IL.zip -nc -O /tmp/geonames/IL.zip #Israel
-wget http://download.geonames.org/export/dump/IT.zip -nc -O /tmp/geonames/IT.zip #Italy
-wget http://download.geonames.org/export/dump/LB.zip -nc -O /tmp/geonames/LB.zip #Lebanon
-wget http://download.geonames.org/export/dump/LY.zip -nc -O /tmp/geonames/LY.zip #Libya
-wget http://download.geonames.org/export/dump/MA.zip -nc -O /tmp/geonames/MA.zip #Morocco
-wget http://download.geonames.org/export/dump/MT.zip -nc -O /tmp/geonames/MT.zip #Malta
-wget http://download.geonames.org/export/dump/PT.zip -nc -O /tmp/geonames/PT.zip #Portugal
-wget http://download.geonames.org/export/dump/TN.zip -nc -O /tmp/geonames/TN.zip #Tunisia
-wget http://download.geonames.org/export/dump/TR.zip -nc -O /tmp/geonames/TR.zip #Turkey
-wget http://download.geonames.org/export/dump/SY.zip -nc -O /tmp/geonames/SY.zip #Syria?
-wget http://download.geonames.org/export/dump/JO.zip -nc -O /tmp/geonames/JO.zip #Jordan?
-wget http://download.geonames.org/export/dump/GB.zip -nc -O /tmp/geonames/GB.zip #Britain?
-wget http://download.geonames.org/export/dump/CH.zip -nc -O /tmp/geonames/CH.zip #Switzerland?
-wget http://download.geonames.org/export/dump/GB.zip -nc -O /tmp/geonames/GB.zip #Britain
-wget http://download.geonames.org/export/dump/MK.zip -nc -O /tmp/geonames/MK.zip #Macedonia
-#Slovenia
-#Hungary
-#Germany
-#Lichtenstein
-#San Marino
-#Vatican
-#Luxembourg
-#Andorra
-#Belgium
-#Netherlands
+for i in AL BA CY DZ EG ES FR GR HR IL IT LB LY MA MT PT TN TR SY JO GB CH MK; do
+  wget http://download.geonames.org/export/dump/${i}.zip -nc -O /tmp/geonames/${i}.zip
+done
+# wget http://download.geonames.org/export/dump/AL.zip -nc -O /tmp/geonames/AL.zip #Albania
+# wget http://download.geonames.org/export/dump/BA.zip -nc -O /tmp/geonames/BA.zip #Bosnia
+# wget http://download.geonames.org/export/dump/CY.zip -nc -O /tmp/geonames/CY.zip #Cyprus
+# wget http://download.geonames.org/export/dump/DZ.zip -nc -O /tmp/geonames/DZ.zip #Algeria
+# wget http://download.geonames.org/export/dump/EG.zip -nc -O /tmp/geonames/EG.zip #Egypt
+# wget http://download.geonames.org/export/dump/ES.zip -nc -O /tmp/geonames/ES.zip #Spain
+# wget http://download.geonames.org/export/dump/FR.zip -nc -O /tmp/geonames/FR.zip #France
+# wget http://download.geonames.org/export/dump/GR.zip -nc -O /tmp/geonames/GR.zip #Greece
+# wget http://download.geonames.org/export/dump/HR.zip -nc -O /tmp/geonames/HR.zip #Croatia
+# wget http://download.geonames.org/export/dump/IL.zip -nc -O /tmp/geonames/IL.zip #Israel
+# wget http://download.geonames.org/export/dump/IT.zip -nc -O /tmp/geonames/IT.zip #Italy
+# wget http://download.geonames.org/export/dump/LB.zip -nc -O /tmp/geonames/LB.zip #Lebanon
+# wget http://download.geonames.org/export/dump/LY.zip -nc -O /tmp/geonames/LY.zip #Libya
+# wget http://download.geonames.org/export/dump/MA.zip -nc -O /tmp/geonames/MA.zip #Morocco
+# wget http://download.geonames.org/export/dump/MT.zip -nc -O /tmp/geonames/MT.zip #Malta
+# wget http://download.geonames.org/export/dump/PT.zip -nc -O /tmp/geonames/PT.zip #Portugal
+# wget http://download.geonames.org/export/dump/TN.zip -nc -O /tmp/geonames/TN.zip #Tunisia
+# wget http://download.geonames.org/export/dump/TR.zip -nc -O /tmp/geonames/TR.zip #Turkey
+# wget http://download.geonames.org/export/dump/SY.zip -nc -O /tmp/geonames/SY.zip #Syria?
+# wget http://download.geonames.org/export/dump/JO.zip -nc -O /tmp/geonames/JO.zip #Jordan?
+# wget http://download.geonames.org/export/dump/GB.zip -nc -O /tmp/geonames/GB.zip #Britain?
+# wget http://download.geonames.org/export/dump/CH.zip -nc -O /tmp/geonames/CH.zip #Switzerland?
+# wget http://download.geonames.org/export/dump/GB.zip -nc -O /tmp/geonames/GB.zip #Britain
+# wget http://download.geonames.org/export/dump/MK.zip -nc -O /tmp/geonames/MK.zip #Macedonia
+#SI Slovenia
+#HU Hungary
+#DE Germany
+#LI Lichtenstein
+#SM San Marino
+#VA Vatican
+#LU Luxembourg
+#AD Andorra
+#BE Belgium
+#NL Netherlands
 
 
 echo unzip geonames
-unzip /tmp/geonames/*.zip -d /tmp/geonames
+for i in /tmp/geonames/*.zip; do
+  unzip -o $i -d /tmp/geonames
+done
 
 
 
