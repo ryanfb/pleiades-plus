@@ -152,18 +152,6 @@ pleiades_names.each_key do |name|
 	end
 end
 
-# places.each_key do |id|
-	# File.open("geojson/#{id}.geojson","w") do |f|
-	# 	f.write(JSON.pretty_generate(place_to_geojson(places[id])))
-	# end
-
-	# unless places[id]["names"].nil?
-	# 	places[id]["names"].map{|n| n["title"]}.uniq.each do |name|
-	# 		names << [name, id]
-	# 	end
-	# end
-# end
-
 $stderr.puts places.length
 $stderr.puts pleiades_names.length
 $stderr.puts geonames.length
