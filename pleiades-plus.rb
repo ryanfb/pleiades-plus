@@ -85,18 +85,20 @@ end
 $stderr.puts "Parsing GeoNames..."
 CSV.foreach(geonames_csv, :headers => false, :col_sep => "\t", :quote_char => "\u{FFFF}") do |row|
 	id = row[0]
-	# maybe want to exclude by featureclass/featurecode for e.g. airports here
-	geonames[id] = {}
-	geonames[id]["name"] = row[1]
-	geonames[id]["asciiname"] = row[2]
-	geonames[id]["alternatenames"] = row[3].nil? ? [] : row[3].split(',')
-	geonames[id]["latitude"] = row[4].to_f
-	geonames[id]["longitude"] = row[5].to_f
-	geonames[id]["featureclass"] = row[6]
-	geonames[id]["featurecode"] = row[7]
+	# exclude by featurecode for e.g. airports here, feel free to expand
+	unless %w{RSTN AIRP AIRH AIRB AIRF ASTR BUSTN BUSTP MFG}.include?(row[7])
+		geonames[id] = {}
+		geonames[id]["name"] = row[1]
+		geonames[id]["asciiname"] = row[2]
+		geonames[id]["alternatenames"] = row[3].nil? ? [] : row[3].split(',')
+		geonames[id]["latitude"] = row[4].to_f
+		geonames[id]["longitude"] = row[5].to_f
+		geonames[id]["featureclass"] = row[6]
+		geonames[id]["featurecode"] = row[7]
 
-	([geonames[id]["name"], geonames[id]["asciiname"]] + geonames[id]["alternatenames"]).each do |name|
-		add_resource_name(geonames_names, name, id)
+		([geonames[id]["name"], geonames[id]["asciiname"]] + geonames[id]["alternatenames"]).each do |name|
+			add_resource_name(geonames_names, name, id)
+		end
 	end
 end
 
