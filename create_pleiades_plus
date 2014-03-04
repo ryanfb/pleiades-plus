@@ -44,7 +44,7 @@ echo import data
 
 echo download geonames files
 mkdir /tmp/geonames
-for i in AL BA CY DZ EG ES FR GR HR IL IT LB LY MA MT PT TN TR SY JO GB CH MK; do
+for i in AL BA CY DZ EG ES FR GR HR IL IT LB LY MA MT PT TN TR SY JO GB CH MK SI HU DE LI SM VA LU AD BE NL; do
   wget http://download.geonames.org/export/dump/${i}.zip -nc -O /tmp/geonames/${i}.zip
 done
 # wget http://download.geonames.org/export/dump/AL.zip -nc -O /tmp/geonames/AL.zip #Albania
