@@ -5,17 +5,54 @@ require 'csv'
 places_csv, names_csv, locations_csv, geonames_csv = ARGV
 
 places = {}
+pleiades_names = {}
 geonames = {}
 geonames_names = {}
 
-def add_geonames_name(geonames_names, name, id)
-	if geonames_names[name].nil?
-		geonames_names[name] = []
+def add_resource_name(resource_names_hash, name, id)
+	if resource_names_hash[name].nil?
+		resource_names_hash[name] = []
 	end
 
-	unless geonames_names[name].include?(id)
-		geonames_names[name] << id
+	unless resource_names_hash[name].include?(id)
+		resource_names_hash[name] << id
 	end
+end
+
+def bbox_to_coords(bbox)
+	coords = bbox.split(',').map{|p| p.to_f}
+end
+
+def is_point?(bbox)
+	coords = bbox_to_coords(bbox)
+	if (coords[0] == coords[2]) && (coords[1] == coords[3])
+		return true
+	else
+		return false
+	end
+end
+
+def bbox_contains?(bbox, lat, long)
+	# long lat long lat
+	# bottom left top right long lat
+	coords = bbox_to_coords(bbox)
+	if ((lat <= coords[3]) && (lat >= coords[1]) && (long <= coords[2]) && (long >= coords[0]))
+		return true
+	else
+		return false
+	end
+end
+
+def haversine_distance(lat1, lon1, lat2, lon2)
+  km_conv = 6371 # km
+  dLat = (lat2-lat1) * Math::PI / 180
+  dLon = (lon2-lon1) * Math::PI / 180
+  lat1 = lat1 * Math::PI / 180
+  lat2 = lat2 * Math::PI / 180
+
+  a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
+  c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+  d = km_conv * c
 end
 
 $stderr.puts "Parsing Pleiades places..."
@@ -28,6 +65,10 @@ CSV.foreach(names_csv, :headers => true) do |row|
 	unless places[row["pid"]].nil?
 		places[row["pid"]]["names"] ||= []
 		places[row["pid"]]["names"] << row.to_hash
+	end
+
+	[row["nameAttested"], row["nameTransliterated"]].each do |name|
+		add_resource_name(pleiades_names, name, row["pid"])
 	end
 end
 
@@ -42,21 +83,66 @@ end
 $stderr.puts "Parsing GeoNames..."
 CSV.foreach(geonames_csv, :headers => false, :col_sep => "\t", :quote_char => "\u{FFFF}") do |row|
 	id = row[0]
+	# maybe want to exclude by featureclass/featurecode for e.g. airports here
 	geonames[id] = {}
 	geonames[id]["name"] = row[1]
 	geonames[id]["asciiname"] = row[2]
 	geonames[id]["alternatenames"] = row[3].nil? ? [] : row[3].split(',')
-	geonames[id]["latitude"] = row[4]
-	geonames[id]["longitude"] = row[5]
+	geonames[id]["latitude"] = row[4].to_f
+	geonames[id]["longitude"] = row[5].to_f
 	geonames[id]["featureclass"] = row[6]
 	geonames[id]["featurecode"] = row[7]
 
 	([geonames[id]["name"], geonames[id]["asciiname"]] + geonames[id]["alternatenames"]).each do |name|
-		add_geonames_name(geonames_names, name, id)
+		add_resource_name(geonames_names, name, id)
 	end
 end
 
 names = []
+
+pleiades_names.each_key do |name|
+	unless geonames_names[name].nil?
+		puts name
+		puts "Pleiades:"
+		pleiades_names[name].each do |pid|
+			unless places[pid].nil?
+				puts "#{places[pid]["title"]}:\n\t#{places[pid]["description"]}\n\t#{places[pid]["bbox"]}"
+				unless places[pid]["bbox"].nil?
+					puts is_point?(places[pid]["bbox"]) ? "\tpoint" : "\tbbox"
+				end
+			end
+		end
+		puts "GeoNames:"
+		geonames_names[name].each do |gid|
+			puts geonames[gid].inspect
+		end
+
+		pleiades_names[name].each do |pid|
+			unless places[pid].nil?
+				geonames_names[name].each do |gid|
+					unless places[pid]["bbox"].nil?
+						if is_point?(places[pid]["bbox"])
+							coords = bbox_to_coords(places[pid]["bbox"])
+							distance = haversine_distance(coords[1], coords[0], geonames[gid]["latitude"], geonames[gid]["longitude"])
+							puts "#{pid} <-> #{gid} distance: #{distance}"
+						else # bbox
+							if bbox_contains?(places[pid]["bbox"],geonames[gid]["latitude"], geonames[gid]["longitude"])
+								puts "#{pid} contains #{gid}"
+							else
+								distance = haversine_distance(places[pid]["reprLat"].to_f, places[pid]["reprLong"].to_f, geonames[gid]["latitude"], geonames[gid]["longitude"])
+								puts "#{pid} does not contain #{gid}"
+								puts "#{pid} <-> #{gid} distance: #{distance}"
+							end
+						end
+					end
+				end
+			end
+		end
+
+		puts ""
+	end
+end
+
 # places.each_key do |id|
 	# File.open("geojson/#{id}.geojson","w") do |f|
 	# 	f.write(JSON.pretty_generate(place_to_geojson(places[id])))
@@ -70,5 +156,6 @@ names = []
 # end
 
 puts places.length
+puts pleiades_names.length
 puts geonames.length
 puts geonames_names.length
