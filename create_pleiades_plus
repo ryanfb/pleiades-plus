@@ -5,12 +5,12 @@ echo -------------
 echo downloading Pleiades files
 for i in locations names places; do
   wget http://atlantides.org/downloads/pleiades/dumps/pleiades-${i}-latest.csv.gz -nc 
-  gunzip -f pleiades-${i}-latest.csv.gz
+  gunzip -fk pleiades-${i}-latest.csv.gz
 done
 
 echo download geonames files
 mkdir /tmp/geonames
-for i in AL BA CY DZ EG ES FR GR HR IL IT LB LY MA MT PT TN TR SY JO GB CH MK SI HU DE LI SM VA LU AD BE NL; do
+for i in AL BA CY DZ EG ES FR GR HR IL IT LB LY MA MT PT TN TR SY JO GB CH MK SI HU DE LI SM VA LU AD BE NL AT YE RS DK IE RO BG IR AM XK IQ GI AE SA AF OM KW ET IN LK PK PS RU BH UA GG SD GE AZ no-country; do
   wget http://download.geonames.org/export/dump/${i}.zip -nc -O /tmp/geonames/${i}.zip
 done
 # wget http://download.geonames.org/export/dump/AL.zip -nc -O /tmp/geonames/AL.zip #Albania
