@@ -53,9 +53,16 @@ for i in /tmp/geonames/*.zip; do
   unzip -o $i -d /tmp/geonames
 done
 
-cat /tmp/geonames/*.txt > all-geonames.txt
+mkdir /tmp/capgrids
+for i in $(seq 1 102); do
+	wget http://atlantides.org/capgrids/${i}.ttl -nc -O /tmp/capgrids/${i}.ttl
+done
 
-./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv all-geonames.txt | sort | uniq > pleiades-plus.csv
+rm -v /tmp/geonames/readme.txt
+
+# cat /tmp/geonames/*.txt > all-geonames.txt
+
+parallel --eta ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv {} ::: /tmp/geonames/*.txt | sort | uniq > pleiades-plus.csv
 
 
 

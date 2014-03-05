@@ -2,6 +2,10 @@
 
 require 'csv'
 
+require 'rdf'
+require 'rdf/raptor'
+require 'json'
+
 distance_threshold = 8.0
 
 places_csv, names_csv, locations_csv, geonames_csv = ARGV
@@ -37,7 +41,11 @@ end
 def bbox_contains?(bbox, lat, long)
 	# long lat long lat
 	# bottom left top right long lat
-	coords = bbox_to_coords(bbox)
+	if bbox.is_a?(String)
+		coords = bbox_to_coords(bbox)
+	else
+		coords = bbox
+	end
 	if ((lat <= coords[3]) && (lat >= coords[1]) && (long <= coords[2]) && (long >= coords[0]))
 		return true
 	else
@@ -55,6 +63,20 @@ def haversine_distance(lat1, lon1, lat2, lon2)
   a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
   c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
   d = km_conv * c
+end
+
+capgrids = {}
+$stderr.puts "Parsing BAtlas capgrids..."
+(1..102).each do |n|
+	capgrid_url = "http://atlantides.org/capgrids/#{n}"
+	RDF::Reader.open("/tmp/capgrids/#{n}.ttl") do |reader|
+		reader.each_statement do |statement|
+			if (statement.subject.to_s == "#{capgrid_url}#this-extent") && (statement.predicate.to_s == "http://data.ordnancesurvey.co.uk/ontology/geometry/asGeoJSON")
+				coordinates = JSON.parse(statement.object.to_s)["coordinates"][0]
+				capgrids[n] = [coordinates[3][0], coordinates[3][1], coordinates[1][0], coordinates[1][1]]
+			end
+		end
+	end
 end
 
 $stderr.puts "Parsing Pleiades places..."
@@ -124,7 +146,7 @@ pleiades_names.each_key do |name|
 		pleiades_names[name].each do |pid|
 			unless places[pid].nil?
 				geonames_names[name].each do |gid|
-					unless places[pid]["bbox"].nil?
+					if !places[pid]["bbox"].nil?
 						if is_point?(places[pid]["bbox"])
 							coords = bbox_to_coords(places[pid]["bbox"])
 							distance = haversine_distance(coords[1], coords[0], geonames[gid]["latitude"], geonames[gid]["longitude"])
@@ -143,6 +165,17 @@ pleiades_names.each_key do |name|
 								if distance < distance_threshold
 									puts "#{pid},#{gid}"
 								end
+							end
+						end
+					elsif places[pid]["locationPrecision"] == "unlocated"
+						if places[pid]["description"] =~ /An ancient place, cited: BAtlas (\d+)/
+							capgrid_bbox = capgrids[$1.to_i]
+							$stderr.puts "BAtlas #{$1} = #{capgrid_bbox.inspect}"
+							if (!capgrid_bbox.nil?) && bbox_contains?(capgrid_bbox,geonames[gid]["latitude"], geonames[gid]["longitude"])
+								$stderr.puts "capgrid #{$1} for #{pid} contains #{gid}"
+								puts "#{pid},#{gid}"
+							else
+								$stderr.puts "capgrid #{$1} for #{pid} does not contain #{gid}"
 							end
 						end
 					end
