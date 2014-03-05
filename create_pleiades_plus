@@ -53,6 +53,8 @@ for i in /tmp/geonames/*.zip; do
   unzip -o $i -d /tmp/geonames
 done
 
+rm -v /tmp/geonames/readme.txt
+
 cat /tmp/geonames/*.txt > all-geonames.txt
 
 ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv all-geonames.txt | sort | uniq > pleiades-plus.csv
