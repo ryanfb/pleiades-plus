@@ -45,17 +45,31 @@ def bbox_contains?(bbox, lat, long)
 	end
 end
 
-def haversine_distance(lat1, lon1, lat2, lon2)
-  km_conv = 6371 # km
-  dLat = (lat2-lat1) * Math::PI / 180
-  dLon = (lon2-lon1) * Math::PI / 180
-  lat1 = lat1 * Math::PI / 180
-  lat2 = lat2 * Math::PI / 180
-
-  a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
-  c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-  d = km_conv * c
+def log_match(pleiades, geonames, match_type, match_distance)
+	data = []
+	data << "http://pleiades.stoa.org/places/#{pleiades["id"]}"
+	data << "http://www.geonames.org/#{geonames["id"]}"
+	data << match_type
+	data << match_distance.to_s
+	data << pleiades["locationPrecision"]
+	data << "\"#{pleiades["featureTypes"].strip}\""
+	data << geonames["featurecode"]
+	puts data.join(',')
 end
+
+def haversine_distance(lat1, lon1, lat2, lon2)
+	km_conv = 6371 # km
+	dLat = (lat2-lat1) * Math::PI / 180
+	dLon = (lon2-lon1) * Math::PI / 180
+	lat1 = lat1 * Math::PI / 180
+	lat2 = lat2 * Math::PI / 180
+
+	a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
+	c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+	d = km_conv * c
+end
+
+puts "pleiades_url,geonames_url,match_type,distance,pleiades_locationPrecision,pleiades_featureTypes,geonames_featurecode"
 
 $stderr.puts "Parsing Pleiades places..."
 CSV.foreach(places_csv, :headers => true) do |row|
@@ -88,6 +102,7 @@ CSV.foreach(geonames_csv, :headers => false, :col_sep => "\t", :quote_char => "\
 	# exclude by featurecode for e.g. airports here, feel free to expand
 	unless %w{RSTN AIRP AIRH AIRB AIRF ASTR BUSTN BUSTP MFG}.include?(row[7])
 		geonames[id] = {}
+		geonames[id]["id"] = id
 		geonames[id]["name"] = row[1]
 		geonames[id]["asciiname"] = row[2]
 		geonames[id]["alternatenames"] = row[3].nil? ? [] : row[3].split(',')
@@ -130,18 +145,18 @@ pleiades_names.each_key do |name|
 							distance = haversine_distance(coords[1], coords[0], geonames[gid]["latitude"], geonames[gid]["longitude"])
 							$stderr.puts "#{pid} <-> #{gid} distance: #{distance}"
 							if distance < distance_threshold
-								puts "#{pid},#{gid}"
+								log_match(places[pid],geonames[gid],"distance",distance)
 							end
 						else # bbox
 							if bbox_contains?(places[pid]["bbox"],geonames[gid]["latitude"], geonames[gid]["longitude"])
 								$stderr.puts "#{pid} contains #{gid}"
-								puts "#{pid},#{gid}"
+								log_match(places[pid],geonames[gid],"bbox",0)
 							else
 								distance = haversine_distance(places[pid]["reprLat"].to_f, places[pid]["reprLong"].to_f, geonames[gid]["latitude"], geonames[gid]["longitude"])
 								$stderr.puts "#{pid} does not contain #{gid}"
 								$stderr.puts "#{pid} <-> #{gid} distance: #{distance}"
 								if distance < distance_threshold
-									puts "#{pid},#{gid}"
+									log_match(places[pid],geonames[gid],"distance",distance)
 								end
 							end
 						end
