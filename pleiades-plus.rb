@@ -2,13 +2,9 @@
 
 require 'csv'
 
-require 'rdf'
-require 'rdf/raptor'
-require 'json'
-
 distance_threshold = 8.0
 
-places_csv, names_csv, locations_csv, geonames_csv = ARGV
+places_csv, names_csv, locations_csv, geonames_csv, capgrids_path = ARGV
 
 places = {}
 pleiades_names = {}
@@ -53,31 +49,51 @@ def bbox_contains?(bbox, lat, long)
 	end
 end
 
-def haversine_distance(lat1, lon1, lat2, lon2)
-  km_conv = 6371 # km
-  dLat = (lat2-lat1) * Math::PI / 180
-  dLon = (lon2-lon1) * Math::PI / 180
-  lat1 = lat1 * Math::PI / 180
-  lat2 = lat2 * Math::PI / 180
+def log_match(pleiades, geonames, match_type, match_distance)
+	data = []
+	data << "http://pleiades.stoa.org/places/#{pleiades["id"]}"
+	data << "http://www.geonames.org/#{geonames["id"]}"
+	data << match_type
+	data << match_distance.to_s
+	data << pleiades["locationPrecision"]
+	data << "\"#{pleiades["featureTypes"].strip}\""
+	data << geonames["featurecode"]
+	puts data.join(',')
+end
 
-  a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
-  c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-  d = km_conv * c
+def haversine_distance(lat1, lon1, lat2, lon2)
+	km_conv = 6371 # km
+	dLat = (lat2-lat1) * Math::PI / 180
+	dLon = (lon2-lon1) * Math::PI / 180
+	lat1 = lat1 * Math::PI / 180
+	lat2 = lat2 * Math::PI / 180
+
+	a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
+	c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+	d = km_conv * c
 end
 
 capgrids = {}
-$stderr.puts "Parsing BAtlas capgrids..."
-(1..102).each do |n|
-	capgrid_url = "http://atlantides.org/capgrids/#{n}"
-	RDF::Reader.open("/tmp/capgrids/#{n}.ttl") do |reader|
-		reader.each_statement do |statement|
-			if (statement.subject.to_s == "#{capgrid_url}#this-extent") && (statement.predicate.to_s == "http://data.ordnancesurvey.co.uk/ontology/geometry/asGeoJSON")
-				coordinates = JSON.parse(statement.object.to_s)["coordinates"][0]
-				capgrids[n] = [coordinates[3][0], coordinates[3][1], coordinates[1][0], coordinates[1][1]]
+unless capgrids_path.nil?
+	require 'rdf'
+	require 'rdf/raptor'
+	require 'json'
+
+	$stderr.puts "Parsing BAtlas capgrids..."
+	(1..102).each do |n|
+		capgrid_url = "http://atlantides.org/capgrids/#{n}"
+		RDF::Reader.open("#{capgrids_path}/#{n}.ttl") do |reader|
+			reader.each_statement do |statement|
+				if (statement.subject.to_s == "#{capgrid_url}#this-extent") && (statement.predicate.to_s == "http://data.ordnancesurvey.co.uk/ontology/geometry/asGeoJSON")
+					coordinates = JSON.parse(statement.object.to_s)["coordinates"][0]
+					capgrids[n] = [coordinates[3][0], coordinates[3][1], coordinates[1][0], coordinates[1][1]]
+				end
 			end
 		end
 	end
 end
+
+puts "pleiades_url,geonames_url,match_type,distance,pleiades_locationPrecision,pleiades_featureTypes,geonames_featurecode"
 
 $stderr.puts "Parsing Pleiades places..."
 CSV.foreach(places_csv, :headers => true) do |row|
@@ -110,6 +126,7 @@ CSV.foreach(geonames_csv, :headers => false, :col_sep => "\t", :quote_char => "\
 	# exclude by featurecode for e.g. airports here, feel free to expand
 	unless %w{RSTN AIRP AIRH AIRB AIRF ASTR BUSTN BUSTP MFG}.include?(row[7])
 		geonames[id] = {}
+		geonames[id]["id"] = id
 		geonames[id]["name"] = row[1]
 		geonames[id]["asciiname"] = row[2]
 		geonames[id]["alternatenames"] = row[3].nil? ? [] : row[3].split(',')
@@ -152,28 +169,28 @@ pleiades_names.each_key do |name|
 							distance = haversine_distance(coords[1], coords[0], geonames[gid]["latitude"], geonames[gid]["longitude"])
 							$stderr.puts "#{pid} <-> #{gid} distance: #{distance}"
 							if distance < distance_threshold
-								puts "#{pid},#{gid}"
+								log_match(places[pid],geonames[gid],"distance",distance)
 							end
 						else # bbox
 							if bbox_contains?(places[pid]["bbox"],geonames[gid]["latitude"], geonames[gid]["longitude"])
 								$stderr.puts "#{pid} contains #{gid}"
-								puts "#{pid},#{gid}"
+								log_match(places[pid],geonames[gid],"bbox",0)
 							else
 								distance = haversine_distance(places[pid]["reprLat"].to_f, places[pid]["reprLong"].to_f, geonames[gid]["latitude"], geonames[gid]["longitude"])
 								$stderr.puts "#{pid} does not contain #{gid}"
 								$stderr.puts "#{pid} <-> #{gid} distance: #{distance}"
 								if distance < distance_threshold
-									puts "#{pid},#{gid}"
+									log_match(places[pid],geonames[gid],"distance",distance)
 								end
 							end
 						end
-					elsif places[pid]["locationPrecision"] == "unlocated"
-						if places[pid]["description"] =~ /An ancient place, cited: BAtlas (\d+)/
+					elsif (!capgrids_path.nil?) && (places[pid]["locationPrecision"] == "unlocated")
+						if (places[pid]["description"] =~ /An ancient place, cited: BAtlas (\d+)/)
 							capgrid_bbox = capgrids[$1.to_i]
 							$stderr.puts "BAtlas #{$1} = #{capgrid_bbox.inspect}"
 							if (!capgrid_bbox.nil?) && bbox_contains?(capgrid_bbox,geonames[gid]["latitude"], geonames[gid]["longitude"])
 								$stderr.puts "capgrid #{$1} for #{pid} contains #{gid}"
-								puts "#{pid},#{gid}"
+								log_match(places[pid],geonames[gid],"capgrid",0)
 							else
 								$stderr.puts "capgrid #{$1} for #{pid} does not contain #{gid}"
 							end
