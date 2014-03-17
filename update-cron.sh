@@ -12,7 +12,7 @@ git add data/pleiades-plus.csv
 git commit -m "$(date '+%Y-%m-%d') pleiades-plus.csv update"
 git checkout capgrids
 git pull
-git merge -s recursive -Xtheirs master
+git merge -s recursive -Xtheirs --no-edit master
 ./create_pleiades_plus
 git add data/pleiades-plus.csv
 git commit -m "$(date '+%Y-%m-%d') pleiades-plus.csv capgrids update"
