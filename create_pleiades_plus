@@ -61,7 +61,7 @@ done
 rm -v /tmp/geonames/readme.txt
 
 if command -v parallel >/dev/null 2>&1; then
-	parallel --eta ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv {} /tmp/capgrids ::: /tmp/geonames/*.txt | sort -r | uniq > data/pleiades-plus.csv
+	parallel --linebuffer --eta ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv {} /tmp/capgrids ::: /tmp/geonames/*.txt | sort -r | uniq > data/pleiades-plus.csv
 else
 	cat /tmp/geonames/*.txt > all-geonames.txt
 	./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv all-geonames.txt /tmp/capgrids | sort -r | uniq > data/pleiades-plus.csv
