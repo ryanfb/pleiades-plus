@@ -926,6 +926,7 @@ http://pleiades.stoa.org/places/580021,http://www.geonames.org/257717,bbox,0,pre
 http://pleiades.stoa.org/places/579992,http://www.geonames.org/8310183,distance,0.4721503650289462,precise,"settlement",PPLA2
 http://pleiades.stoa.org/places/579992,http://www.geonames.org/8133688,distance,0.38219187103168883,precise,"settlement",ADM3
 http://pleiades.stoa.org/places/579992,http://www.geonames.org/259303,distance,0.9129596854923733,precise,"settlement",HLLS
+http://pleiades.stoa.org/places/579985,http://www.geonames.org/8740136,distance,0.8363325044695987,precise,"settlement",PPLX
 http://pleiades.stoa.org/places/579972,http://www.geonames.org/259824,distance,1.4590078269391087,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/579945,http://www.geonames.org/257895,distance,2.3454085629144354,precise,"island",ISL
 http://pleiades.stoa.org/places/579928,http://www.geonames.org/262609,bbox,0,rough,"unknown",PPL
@@ -2203,7 +2204,7 @@ http://pleiades.stoa.org/places/197488,http://www.geonames.org/3190359,distance,
 http://pleiades.stoa.org/places/197483,http://www.geonames.org/2537763,distance,7.411847315478285,precise,"river",PPL
 http://pleiades.stoa.org/places/197468,http://www.geonames.org/3200823,distance,0.6491308432703078,precise,"station",PPL
 http://pleiades.stoa.org/places/197466,http://www.geonames.org/3204222,distance,6.659146882158452,precise,"settlement",PPL
-http://pleiades.stoa.org/places/197448,http://www.geonames.org/3192224,distance,0.18937598287013685,precise,"theatre, amphitheatre, temple, settlement, arch, port",PPL
+http://pleiades.stoa.org/places/197448,http://www.geonames.org/3192224,distance,0.18937598287013685,precise,"theatre, temple, arch, settlement, amphitheatre, port",PPL
 http://pleiades.stoa.org/places/197442,http://www.geonames.org/3293443,distance,0.46031012276426736,precise,"settlement",PPLL
 http://pleiades.stoa.org/places/197442,http://www.geonames.org/3193277,distance,0.045476194859385186,precise,"settlement",PPL
 http://pleiades.stoa.org/places/197438,http://www.geonames.org/3202942,distance,0.4003256638795369,precise,"settlement",PPL
