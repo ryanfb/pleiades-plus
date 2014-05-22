@@ -972,7 +972,7 @@ http://pleiades.stoa.org/places/580119,http://sws.geonames.org/7324093/,bbox,0,p
 http://pleiades.stoa.org/places/580119,http://sws.geonames.org/252894/,distance,0.6404153605099325,precise,"settlement, mine, theatre, production",PPL
 http://pleiades.stoa.org/places/580114,http://sws.geonames.org/8133914/,distance,5.911274713042755,precise,"settlement",ADM3
 http://pleiades.stoa.org/places/580114,http://sws.geonames.org/253045/,distance,4.558577401434914,precise,"settlement",PPL
-http://pleiades.stoa.org/places/580107,http://sws.geonames.org/260477/,distance,3.160238909063608,precise,"settlement, temple",PPL
+http://pleiades.stoa.org/places/580107,http://sws.geonames.org/260477/,distance,1.7459900427118853,precise,"settlement, temple",PPL
 http://pleiades.stoa.org/places/580101,http://sws.geonames.org/8133766/,distance,2.814919653510616,precise,"island",ADM3
 http://pleiades.stoa.org/places/580101,http://sws.geonames.org/254146/,distance,4.402749651798592,precise,"island",BAY
 http://pleiades.stoa.org/places/580101,http://sws.geonames.org/254144/,distance,3.990541166292985,precise,"island",PPL
@@ -986,6 +986,7 @@ http://pleiades.stoa.org/places/580079,http://sws.geonames.org/262426/,distance,
 http://pleiades.stoa.org/places/580076,http://sws.geonames.org/260172/,distance,0.9162359517375982,precise,"settlement",PPL
 http://pleiades.stoa.org/places/580062,http://sws.geonames.org/8133777/,distance,1.091224528849195,precise,"region, settlement, theatre, fort",ADM3
 http://pleiades.stoa.org/places/580062,http://sws.geonames.org/255274/,distance,1.315051108983111,precise,"region, settlement, theatre, fort",PPLA3
+http://pleiades.stoa.org/places/580057,http://sws.geonames.org/9036754/,bbox,0,rough,"unknown",PPL
 http://pleiades.stoa.org/places/580053,http://sws.geonames.org/255943/,bbox,0,precise,"fort",PPL
 http://pleiades.stoa.org/places/580044,http://sws.geonames.org/8133773/,distance,7.253482507274299,precise,"settlement, port",ADM3
 http://pleiades.stoa.org/places/580044,http://sws.geonames.org/256257/,distance,4.106523417314076,precise,"settlement, port",PPLA3
