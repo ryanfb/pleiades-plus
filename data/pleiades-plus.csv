@@ -972,6 +972,7 @@ http://pleiades.stoa.org/places/570641,http://sws.geonames.org/255229/,distance,
 http://pleiades.stoa.org/places/570640,http://sws.geonames.org/255293/,distance,5.379532830566065,precise,"settlement",PPL
 http://pleiades.stoa.org/places/570629,http://sws.geonames.org/255128/,distance,0.5002786002247355,precise,"settlement",PPL
 http://pleiades.stoa.org/places/570590,http://sws.geonames.org/262488/,distance,0.28819983167480173,precise,"settlement",PPL
+http://pleiades.stoa.org/places/570577,http://sws.geonames.org/9062330/,bbox,0,related,"peninsula, region",ISL
 http://pleiades.stoa.org/places/570577,http://sws.geonames.org/255620/,bbox,0,related,"peninsula, region",RGN
 http://pleiades.stoa.org/places/570575,http://sws.geonames.org/255624/,distance,1.549385879137927,precise,"settlement",PPL
 http://pleiades.stoa.org/places/570567,http://sws.geonames.org/8133690/,distance,5.862965495331236,precise,"settlement",ADM3
@@ -1817,7 +1818,7 @@ http://pleiades.stoa.org/places/344520,http://sws.geonames.org/2468108/,distance
 http://pleiades.stoa.org/places/344496,http://sws.geonames.org/2468369/,distance,7.844836854055577,precise,"settlement",PPLA
 http://pleiades.stoa.org/places/344492,http://sws.geonames.org/2468368/,distance,0.0002765543161543023,precise,"water-open",GULF
 http://pleiades.stoa.org/places/344459,http://sws.geonames.org/2220457/,distance,3.5423537682418558,precise,"settlement",PPL
-http://pleiades.stoa.org/places/344456,http://sws.geonames.org/2210247/,distance,2.738278239703571,precise,"settlement",PPLC
+http://pleiades.stoa.org/places/344456,http://sws.geonames.org/2210247/,distance,2.738278239703571,precise,"settlement, arch",PPLC
 http://pleiades.stoa.org/places/344440,http://sws.geonames.org/2470181/,distance,2.409748868473972,precise,"island",ISL
 http://pleiades.stoa.org/places/344380,http://sws.geonames.org/2470896/,distance,1.003388467761802,precise,"settlement",RUIN
 http://pleiades.stoa.org/places/344334,http://sws.geonames.org/2468070/,distance,0.06934732470526224,precise,"fort",PPL
