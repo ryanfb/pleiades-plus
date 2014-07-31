@@ -60,6 +60,9 @@ done
 
 rm -v /tmp/geonames/readme.txt
 
+gem install bundler
+rbenv rehash
+bundle install
 if command -v parallel >/dev/null 2>&1; then
 	parallel --linebuffer --eta bundle exec ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv {} /tmp/capgrids ::: /tmp/geonames/*.txt | sort -r | uniq > data/pleiades-plus.csv
 else
