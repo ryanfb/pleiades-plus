@@ -46,7 +46,7 @@ Running
 
 Outputs to `data/pleiades-plus.csv`.
 
-Assumes Ruby 1.9+ (FasterCSV as `require 'csv'`).
+Assumes default Ruby (via e.g. [rbenv](https://github.com/sstephenson/rbenv)) is JRuby in Ruby 1.9 mode (FasterCSV as `require 'csv'`) and [bundler](http://bundler.io/).
 
 If [GNU parallel](http://www.gnu.org/software/parallel/) is installed, it will be used for parallel processing.
 
