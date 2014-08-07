@@ -4,6 +4,7 @@ Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
 require 'csv'
+require 'lib/icu4j-53_1.jar'
 
 distance_threshold = 8.0
 
@@ -15,12 +16,16 @@ geonames = {}
 geonames_names = {}
 
 def add_resource_name(resource_names_hash, name, id)
-	if resource_names_hash[name].nil?
-		resource_names_hash[name] = []
-	end
+	unless name.nil?
+		transliterated_name = Java::ComIbmIcuText::Transliterator.getInstance('Any-Latin; Lower; NFD; [:Nonspacing Mark:] Remove; [:Punctuation:] Remove; NFC').transliterate(name)
 
-	unless resource_names_hash[name].include?(id)
-		resource_names_hash[name] << id
+		if resource_names_hash[transliterated_name].nil?
+			resource_names_hash[transliterated_name] = []
+		end
+
+		unless resource_names_hash[transliterated_name].include?(id)
+			resource_names_hash[transliterated_name] << id
+		end
 	end
 end
 
@@ -100,7 +105,8 @@ CSV.foreach(locations_csv, :headers => true) do |row|
 end
 
 $stderr.puts "Parsing GeoNames..."
-CSV.foreach(geonames_csv, :headers => false, :col_sep => "\t", :quote_char => "\u{FFFF}") do |row|
+geonames_csv_string = File.open(geonames_csv, "rb").read.force_encoding('UTF-8').encode('UTF-8', :invalid => :replace)
+CSV.parse(geonames_csv_string, :headers => false, :col_sep => "\t", :quote_char => "\u{FFFF}") do |row|
 	id = row[0]
 	# exclude by featurecode for e.g. airports here, feel free to expand
 	unless %w{RSTN AIRP AIRH AIRB AIRF ASTR BUSTN BUSTP MFG}.include?(row[7])
