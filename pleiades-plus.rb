@@ -53,7 +53,7 @@ def log_match(pleiades, geonames, match_type, match_distance)
 	data << "http://pleiades.stoa.org/places/#{pleiades["id"]}"
 	data << "http://sws.geonames.org/#{geonames["id"]}/"
 	data << match_type
-	data << match_distance.to_s
+	data << match_distance.to_f.round(3).to_s
 	data << pleiades["locationPrecision"]
 	data << "\"#{pleiades["featureTypes"].strip}\""
 	data << geonames["featurecode"]
