@@ -19,7 +19,7 @@ geonames = {}
 geonames_names = {}
 
 # exclude by featurecode for e.g. airports here, feel free to expand
-$excluded_geonames_codes = %w{RSTN AIRP AIRH AIRB AIRF ASTR BUSTN BUSTP MFG}
+$excluded_geonames_codes = %w{RSTN AIRP AIRH AIRB AIRF ASTR BUSTN BUSTP MFG HTL}
 
 def geonames_names_query(name, names_hash)
 	if names_hash.size > 0
