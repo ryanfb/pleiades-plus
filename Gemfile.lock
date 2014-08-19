@@ -3,10 +3,15 @@ GEM
   specs:
     ffi (1.9.3)
     ffi (1.9.3-java)
+    mime-types (2.3)
+    netrc (0.7.7)
     rdf (1.1.4.3)
     rdf-raptor (1.2.0)
       ffi (>= 1.9.3)
       rdf (>= 1.1.0)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
 
 PLATFORMS
   java
@@ -14,3 +19,4 @@ PLATFORMS
 
 DEPENDENCIES
   rdf-raptor
+  rest-client
