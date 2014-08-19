@@ -18,6 +18,9 @@ pleiades_names = {}
 geonames = {}
 geonames_names = {}
 
+# exclude by featurecode for e.g. airports here, feel free to expand
+$excluded_geonames_codes = %w{RSTN AIRP AIRH AIRB AIRF ASTR BUSTN BUSTP MFG}
+
 def geonames_names_query(name, names_hash)
 	if names_hash.size > 0
 		return names_hash[name]
@@ -83,15 +86,17 @@ def bbox_contains?(bbox, lat, long)
 end
 
 def log_match(pleiades, geonames, match_type, match_distance)
-	data = []
-	data << "http://pleiades.stoa.org/places/#{pleiades["id"]}"
-	data << "http://sws.geonames.org/#{geonames["id"]}/"
-	data << match_type
-	data << match_distance.to_f.round(3).to_s
-	data << pleiades["locationPrecision"]
-	data << "\"#{pleiades["featureTypes"].strip}\""
-	data << geonames["feature_code"]
-	puts data.join(',')
+	unless $excluded_geonames_codes.include?(geonames["feature_code"])
+		data = []
+		data << "http://pleiades.stoa.org/places/#{pleiades["id"]}"
+		data << "http://sws.geonames.org/#{geonames["id"]}/"
+		data << match_type
+		data << match_distance.to_f.round(3).to_s
+		data << pleiades["locationPrecision"]
+		data << "\"#{pleiades["featureTypes"].strip}\""
+		data << geonames["feature_code"]
+		puts data.join(',')
+	end
 end
 
 def haversine_distance(lat1, lon1, lat2, lon2)
@@ -141,8 +146,7 @@ unless solr_geonames_up
 	geonames_csv_string = File.open(geonames_csv, "rb").read.force_encoding('UTF-8').encode('UTF-8', :invalid => :replace)
 	CSV.parse(geonames_csv_string, :headers => false, :col_sep => "\t", :quote_char => "\u{FFFF}") do |row|
 		id = row[0]
-		# exclude by featurecode for e.g. airports here, feel free to expand
-		unless %w{RSTN AIRP AIRH AIRB AIRF ASTR BUSTN BUSTP MFG}.include?(row[7])
+		unless $excluded_geonames_codes.include?(row[7])
 			geonames[id] = {}
 			geonames[id]["id"] = id
 			geonames[id]["name"] = row[1]
