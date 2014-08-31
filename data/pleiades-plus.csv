@@ -1159,6 +1159,7 @@ http://pleiades.stoa.org/places/570221,http://sws.geonames.org/7732667/,bbox,0.0
 http://pleiades.stoa.org/places/570221,http://sws.geonames.org/261790/,bbox,0.0,rough,"region",PPL
 http://pleiades.stoa.org/places/570220,http://sws.geonames.org/7732667/,distance,0.278,precise,"settlement, theatre",ANS
 http://pleiades.stoa.org/places/570220,http://sws.geonames.org/261790/,distance,1.186,precise,"settlement, theatre",PPL
+http://pleiades.stoa.org/places/570186,http://sws.geonames.org/259710/,bbox,0.0,rough,"island",PPLA3
 http://pleiades.stoa.org/places/570186,http://sws.geonames.org/259709/,bbox,0.0,rough,"island",ISL
 http://pleiades.stoa.org/places/570182,http://sws.geonames.org/8354442/,distance,0.073,precise,"settlement, plaza",ANS
 http://pleiades.stoa.org/places/570182,http://sws.geonames.org/264638/,distance,0.544,precise,"settlement, plaza",PPL
