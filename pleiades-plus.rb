@@ -214,7 +214,7 @@ pleiades_names.each_key do |name|
 							$stderr.puts "BAtlas #{$1} = #{capgrid_bbox.inspect}"
 							if (!capgrid_bbox.nil?) && bbox_contains?(capgrid_bbox,geonames[gid]["latitude"], geonames[gid]["longitude"])
 								$stderr.puts "capgrid #{$1} for #{pid} contains #{gid}"
-								log_match(places[pid],geonames[gid],"capgrid",0)
+								log_match(places[pid], geonames[gid], "capgrid", 0, already_matched)
 							else
 								$stderr.puts "capgrid #{$1} for #{pid} does not contain #{gid}"
 							end
