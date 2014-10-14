@@ -60,14 +60,17 @@ done
 
 rm -v /tmp/geonames/readme.txt
 
+echo download EDH
+wget http://edh-www.adw.uni-heidelberg.de/download/edhPleiadesGeonames.csv -nc
+
 gem install bundler
 rbenv rehash
 bundle install
 if command -v parallel >/dev/null 2>&1; then
-	JRUBY_OPTS="-J-Xmx2G" parallel --linebuffer --eta bundle exec ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv {} /tmp/capgrids ::: /tmp/geonames/*.txt | sort -r | uniq > data/pleiades-plus.csv
+	JRUBY_OPTS="-J-Xmx2G" parallel --linebuffer --eta bundle exec ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv {} /tmp/capgrids edhPleiadesGeonames.csv ::: /tmp/geonames/*.txt | sort -r | uniq > data/pleiades-plus.csv
 else
 	cat /tmp/geonames/*.txt > all-geonames.txt
-	JRUBY_OPTS="-J-Xmx8G" bundle exec ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv all-geonames.txt /tmp/capgrids | sort -r | uniq > data/pleiades-plus.csv
+	JRUBY_OPTS="-J-Xmx8G" bundle exec ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv all-geonames.txt /tmp/capgrids edhPleiadesGeonames.csv | sort -r | uniq > data/pleiades-plus.csv
 fi
 
 

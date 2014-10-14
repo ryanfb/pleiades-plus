@@ -8,12 +8,13 @@ require 'lib/icu4j-53_1.jar'
 
 distance_threshold = 8.0
 
-places_csv, names_csv, locations_csv, geonames_csv, capgrids_path = ARGV
+places_csv, names_csv, locations_csv, geonames_csv, capgrids_path, edh_csv = ARGV
 
 places = {}
 pleiades_names = {}
 geonames = {}
 geonames_names = {}
+already_matched = []
 
 def add_resource_name(resource_names_hash, name, id)
 	unless name.nil?
@@ -57,16 +58,19 @@ def bbox_contains?(bbox, lat, long)
 	end
 end
 
-def log_match(pleiades, geonames, match_type, match_distance)
-	data = []
-	data << "http://pleiades.stoa.org/places/#{pleiades["id"]}"
-	data << "http://sws.geonames.org/#{geonames["id"]}/"
-	data << match_type
-	data << match_distance.to_f.round(3).to_s
-	data << pleiades["locationPrecision"]
-	data << "\"#{pleiades["featureTypes"].strip}\""
-	data << geonames["featurecode"]
-	puts data.join(',')
+def log_match(pleiades, geonames, match_type, match_distance, already_matched)
+	unless already_matched.include?("#{pleiades},#{geonames}")
+		already_matched << "#{pleiades},#{geonames}"
+		data = []
+		data << "http://pleiades.stoa.org/places/#{pleiades["id"]}"
+		data << "http://sws.geonames.org/#{geonames["id"]}/"
+		data << match_type
+		data << match_distance.to_f.round(3).to_s
+		data << pleiades["locationPrecision"]
+		data << "\"#{pleiades["featureTypes"].strip}\""
+		data << geonames["featurecode"]
+		puts data.join(',')
+	end
 end
 
 def haversine_distance(lat1, lon1, lat2, lon2)
@@ -150,6 +154,17 @@ CSV.parse(geonames_csv_string, :headers => false, :col_sep => "\t", :quote_char 
 	end
 end
 
+unless edh_csv.nil?
+	$stderr.puts "Parsing EDH..."
+	CSV.foreach(edh_csv, :headers => true) do |row|
+		pid = row["pleiadesId"]
+		gid = row["geonamesId"]
+		if places.has_key?(pid) && geonames.has_key?(gid) && (!places[pid].nil?) && (!geonames[gid].nil?)
+			log_match(places[pid], geonames[gid], "edh", haversine_distance(places[pid]["reprLat"].to_f, places[pid]["reprLong"].to_f, geonames[gid]["latitude"], geonames[gid]["longitude"]), already_matched)
+		end
+	end
+end
+
 names = []
 
 pleiades_names.each_key do |name|
@@ -178,18 +193,18 @@ pleiades_names.each_key do |name|
 							distance = haversine_distance(coords[1], coords[0], geonames[gid]["latitude"], geonames[gid]["longitude"])
 							$stderr.puts "#{pid} <-> #{gid} distance: #{distance}"
 							if distance < distance_threshold
-								log_match(places[pid],geonames[gid],"distance",distance)
+								log_match(places[pid], geonames[gid], "distance", distance, already_matched)
 							end
 						else # bbox
 							if bbox_contains?(places[pid]["bbox"],geonames[gid]["latitude"], geonames[gid]["longitude"])
 								$stderr.puts "#{pid} contains #{gid}"
-								log_match(places[pid],geonames[gid],"bbox",0)
+								log_match(places[pid], geonames[gid], "bbox", 0, already_matched)
 							else
 								distance = haversine_distance(places[pid]["reprLat"].to_f, places[pid]["reprLong"].to_f, geonames[gid]["latitude"], geonames[gid]["longitude"])
 								$stderr.puts "#{pid} does not contain #{gid}"
 								$stderr.puts "#{pid} <-> #{gid} distance: #{distance}"
 								if distance < distance_threshold
-									log_match(places[pid],geonames[gid],"distance",distance)
+									log_match(places[pid], geonames[gid], "distance", distance, already_matched)
 								end
 							end
 						end
