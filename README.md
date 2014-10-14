@@ -26,6 +26,7 @@ match_type: string
 	"distance": Haversine distance between the Pleiades point or bounding box and the Geonames point was less than 8.0km.
 	"bbox": Geonames coordinates are contained by the Pleiades bounding box
 	"capgrid": Geonames coordinates within the bounding box of the Barrington Atlas grid square for an unlocated Pleiades place
+	"edh": Match manually recorded by the [Epigraphic Database Heidelberg](http://edh-www.adw.uni-heidelberg.de/home)
 
 distance: float
     Haversine distance in kilometers between the Geonames coordinates and the Pleiades coordinates or bounding box. If match_type="contains" this value will be 0.
