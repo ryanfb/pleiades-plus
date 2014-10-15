@@ -782,8 +782,8 @@ http://pleiades.stoa.org/places/648635,http://sws.geonames.org/315401/,distance,
 http://pleiades.stoa.org/places/648615,http://sws.geonames.org/299816/,bbox,0.0,precise,"river",STM
 http://pleiades.stoa.org/places/648560,http://sws.geonames.org/8068874/,distance,4.417,precise,"settlement",ANS
 http://pleiades.stoa.org/places/648557,http://sws.geonames.org/323828/,distance,6.32,precise,"settlement",PPLA2
-http://pleiades.stoa.org/places/648548,http://sws.geonames.org/325363/,distance,1.892,precise,"settlement",PPLA
-http://pleiades.stoa.org/places/648548,http://sws.geonames.org/325361/,distance,4.497,precise,"settlement",ADM1
+http://pleiades.stoa.org/places/648548,http://sws.geonames.org/325363/,distance,1.892,precise,"settlement, settlement-modern",PPLA
+http://pleiades.stoa.org/places/648548,http://sws.geonames.org/325361/,distance,4.497,precise,"settlement, settlement-modern",ADM1
 http://pleiades.stoa.org/places/641191184,http://sws.geonames.org/124665/,bbox,0.0,rough,"settlement",PPLA
 http://pleiades.stoa.org/places/641191180,http://sws.geonames.org/292969/,bbox,0.0,rough,"settlement",ADM1
 http://pleiades.stoa.org/places/641191180,http://sws.geonames.org/292968/,bbox,0.0,rough,"settlement",PPLC
@@ -2236,7 +2236,7 @@ http://pleiades.stoa.org/places/344282,http://sws.geonames.org/2212768/,distance
 http://pleiades.stoa.org/places/334669,http://sws.geonames.org/2474184/,edh,1.158,precise,"settlement",PPL
 http://pleiades.stoa.org/places/334662,http://sws.geonames.org/2490122/,edh,0.487,precise,"settlement",PPL
 http://pleiades.stoa.org/places/334643,http://sws.geonames.org/2464648/,distance,0.955,precise,"oasis",PPLA
-http://pleiades.stoa.org/places/334636,http://sws.geonames.org/2476409/,edh,0.893,precise,"urban, settlement, fort",PPL
+http://pleiades.stoa.org/places/334636,http://sws.geonames.org/2476409/,edh,0.91,precise,"urban, settlement, fort",PPL
 http://pleiades.stoa.org/places/334632,http://sws.geonames.org/2477316/,edh,13.147,precise,"settlement",PPL
 http://pleiades.stoa.org/places/334629,http://sws.geonames.org/2488193/,edh,0.631,precise,"settlement",PPL
 http://pleiades.stoa.org/places/334572,http://sws.geonames.org/2497689/,distance,0.125,precise,"settlement",PPL
