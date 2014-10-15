@@ -16,29 +16,36 @@ The algorithm for determining matches iterates through an array of names associa
 Columns in the CSV
 ------------------
 
-pleiades_url: HTTP URI (string)
-	URI for the Pleiades place resource that the code thinks corresponds to the GeoNames resource identified in "geonames_url"
+`pleiades_url`: HTTP URI (string)
 
-geonames_url: HTTP URI (string)
-	URL for the Geonames place record that the code thinks corresponds to the Pleiades place resource identified in "pleiades_url"
+URI for the Pleiades place resource that the code thinks corresponds to the GeoNames resource identified in "geonames_url"
 
-match_type: string
-	"distance": Haversine distance between the Pleiades point or bounding box and the Geonames point was less than 8.0km.
-	"bbox": Geonames coordinates are contained by the Pleiades bounding box
-	"capgrid": Geonames coordinates within the bounding box of the Barrington Atlas grid square for an unlocated Pleiades place
-	"edh": Match manually recorded by the [Epigraphic Database Heidelberg](http://edh-www.adw.uni-heidelberg.de/home)
+`geonames_url`: HTTP URI (string)
 
-distance: float
-    Haversine distance in kilometers between the Geonames coordinates and the Pleiades coordinates or bounding box. If match_type="contains" this value will be 0.
+URL for the Geonames place record that the code thinks corresponds to the Pleiades place resource identified in "pleiades_url"
 
-pleiades_locationPrecision: string
-	Values copied from the Pleiades location precision field for this place resource: "precise" or "rough".
+`match_type`: string
 
-pleiades_featureTypes: string of comma-delimited strings
-	Values copied from the Pelaides feature type field for the place. Values drawn from the Pleiades "Feature (or Place) Categories" vocabulary: http://pleiades.stoa.org/vocabularies/place-types
+* "distance": Haversine distance between the Pleiades point or bounding box and the Geonames point was less than 8.0km.
+* "bbox": Geonames coordinates are contained by the Pleiades bounding box
+* "capgrid": Geonames coordinates within the bounding box of the Barrington Atlas grid square for an unlocated Pleiades place
+* "edh": Match manually recorded by the [Epigraphic Database Heidelberg](http://edh-www.adw.uni-heidelberg.de/home)
 
-geonames_featurecode: string
-	Value copied from the Geonames feature code. Values drawn from the Geonames Features Codes vocabulary: http://www.geonames.org/export/codes.html
+`distance`: float
+
+Haversine distance in kilometers between the Geonames coordinates and the Pleiades coordinates or bounding box. If match_type="contains" this value will be 0.
+
+`pleiades_locationPrecision`: string
+
+Values copied from the Pleiades location precision field for this place resource: "precise" or "rough".
+
+`pleiades_featureTypes`: string of comma-delimited strings
+
+Values copied from the Pelaides feature type field for the place. Values drawn from the Pleiades "Feature (or Place) Categories" vocabulary: http://pleiades.stoa.org/vocabularies/place-types
+
+`geonames_featurecode`: string
+
+Value copied from the Geonames feature code. Values drawn from the Geonames Features Codes vocabulary: http://www.geonames.org/export/codes.html
 
 Running
 -------
@@ -78,3 +85,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
