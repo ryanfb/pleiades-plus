@@ -2531,8 +2531,8 @@ http://pleiades.stoa.org/places/315267,http://sws.geonames.org/2473656/,edh,0.23
 http://pleiades.stoa.org/places/315264,http://sws.geonames.org/8435813/,distance,0.0,precise,"settlement",PPLH
 http://pleiades.stoa.org/places/315256,http://sws.geonames.org/8435806/,distance,0.0,precise,"settlement",PPLH
 http://pleiades.stoa.org/places/315251,http://sws.geonames.org/2473876/,edh,0.071,precise,"settlement",PPL
-http://pleiades.stoa.org/places/315248,http://sws.geonames.org/2464205/,edh,0.524,precise,"settlement, theatre",PPL
-http://pleiades.stoa.org/places/315248,http://sws.geonames.org/2464204/,distance,1.246,precise,"settlement, theatre",ANS
+http://pleiades.stoa.org/places/315248,http://sws.geonames.org/2464205/,edh,0.524,precise,"settlement",PPL
+http://pleiades.stoa.org/places/315248,http://sws.geonames.org/2464204/,distance,1.246,precise,"settlement",ANS
 http://pleiades.stoa.org/places/315247,http://sws.geonames.org/2464420/,distance,1.141,precise,"settlement, amphitheatre",RUIN
 http://pleiades.stoa.org/places/315244,http://sws.geonames.org/3128865/,edh,1165.999,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/315244,http://sws.geonames.org/3118690/,edh,1230.666,precise,"settlement",PPL
@@ -3387,6 +3387,7 @@ http://pleiades.stoa.org/places/206927,http://sws.geonames.org/686590/,edh,29.39
 http://pleiades.stoa.org/places/206927,http://sws.geonames.org/686578/,edh,0.85,precise,"settlement, fort",PPLA
 http://pleiades.stoa.org/places/206927,http://sws.geonames.org/685437/,edh,3.753,precise,"settlement, fort",PPL
 http://pleiades.stoa.org/places/206927,http://sws.geonames.org/681466/,edh,3.894,precise,"settlement, fort",PPLA2
+http://pleiades.stoa.org/places/206927,http://sws.geonames.org/680631/,edh,13.56,precise,"settlement, fort",PPL
 http://pleiades.stoa.org/places/206927,http://sws.geonames.org/679812/,edh,9.164,precise,"settlement, fort",PPLA2
 http://pleiades.stoa.org/places/206927,http://sws.geonames.org/678866/,edh,214.224,precise,"settlement, fort",PPLA2
 http://pleiades.stoa.org/places/206927,http://sws.geonames.org/678826/,edh,4.311,precise,"settlement, fort",PPL
@@ -3505,7 +3506,6 @@ http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2773026/,edh,30.7
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2772801/,edh,6.45,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2772748/,edh,9.285,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2772673/,edh,8.101,precise,"settlement, amphitheatre",PPL
-http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2772480/,edh,97.132,precise,"settlement, amphitheatre",PPLA3
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2772446/,edh,63.294,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2772414/,edh,29.765,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2772391/,edh,31.333,precise,"settlement, amphitheatre",PPL
@@ -3528,6 +3528,7 @@ http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2770403/,edh,10.2
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2770290/,edh,28.501,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2769912/,edh,9.168,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2769680/,edh,42.767,precise,"settlement, amphitheatre",PPL
+http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2769431/,edh,28.288,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2769391/,edh,29.471,precise,"settlement, amphitheatre",PPLA3
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2769139/,edh,35.421,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2768894/,edh,58.794,precise,"settlement, amphitheatre",PPL
@@ -3604,6 +3605,7 @@ http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2763547/,edh,0.25
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2763505/,edh,21.6,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2763360/,edh,47.661,precise,"settlement, amphitheatre",PPLA3
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2763285/,edh,30.985,precise,"settlement, amphitheatre",PPL
+http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2763282/,edh,27.727,precise,"settlement, amphitheatre",PPL
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2763177/,edh,5.113,precise,"settlement, amphitheatre",MT
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2762931/,edh,8.14,precise,"settlement, amphitheatre",PPLX
 http://pleiades.stoa.org/places/197583,http://sws.geonames.org/2762917/,edh,26.038,precise,"settlement, amphitheatre",PPL
