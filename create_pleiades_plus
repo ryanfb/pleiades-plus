@@ -68,7 +68,7 @@ rbenv rehash
 bundle install
 if command -v parallel >/dev/null 2>&1; then
 	cat /tmp/geonames/*.txt > all-geonames.txt
-	JRUBY_OPTS="-J-Xmx2G" time parallel --pipepart --block 20M -a all-geonames.txt --cat --line-buffer bundle exec ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv {} /tmp/capgrids edhPleiadesGeonames.csv | sort -r | uniq > data/pleiades-plus.csv
+	JRUBY_OPTS="-J-Xmx2G" time parallel --pipepart --block 40M -a all-geonames.txt --cat --line-buffer bundle exec ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv {} /tmp/capgrids edhPleiadesGeonames.csv | sort -r | uniq > data/pleiades-plus.csv
 else
 	cat /tmp/geonames/*.txt > all-geonames.txt
 	JRUBY_OPTS="-J-Xmx8G" bundle exec ./pleiades-plus.rb pleiades-places-latest.csv pleiades-names-latest.csv pleiades-locations-latest.csv all-geonames.txt /tmp/capgrids edhPleiadesGeonames.csv | sort -r | uniq > data/pleiades-plus.csv
