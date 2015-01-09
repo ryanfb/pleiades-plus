@@ -827,7 +827,7 @@ http://pleiades.stoa.org/places/648810,http://sws.geonames.org/296140/,distance,
 http://pleiades.stoa.org/places/648801,http://sws.geonames.org/308203/,edh,0.097,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/648800,http://sws.geonames.org/300281/,distance,0.0,precise,"lake",LK
 http://pleiades.stoa.org/places/648792,http://sws.geonames.org/163088/,bbox,0.0,related,"mountain, settlement",PPL
-http://pleiades.stoa.org/places/648789,http://sws.geonames.org/299817/,edh,1.813,precise,"settlement",PPLA2
+http://pleiades.stoa.org/places/648789,http://sws.geonames.org/299817/,edh,1.357,precise,"settlement",PPLA2
 http://pleiades.stoa.org/places/648783,http://sws.geonames.org/8069038/,distance,2.795,precise,"settlement",ANS
 http://pleiades.stoa.org/places/648771,http://sws.geonames.org/300808/,edh,1.174,precise,"settlement",PPLA2
 http://pleiades.stoa.org/places/648693,http://sws.geonames.org/309527/,distance,0.654,precise,"settlement",PPLA
@@ -992,6 +992,7 @@ http://pleiades.stoa.org/places/599867,http://sws.geonames.org/8133699/,distance
 http://pleiades.stoa.org/places/599867,http://sws.geonames.org/255721/,distance,0.281,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/599867,http://sws.geonames.org/255720/,distance,4.554,precise,"settlement",ISL
 http://pleiades.stoa.org/places/599862,http://sws.geonames.org/6951006/,bbox,0.0,rough,"labeled feature",PPL
+http://pleiades.stoa.org/places/599855,http://sws.geonames.org/9889292/,distance,0.005,precise,"temple",ANS
 http://pleiades.stoa.org/places/599830,http://sws.geonames.org/8133958/,distance,1.621,precise,"island",ADM3
 http://pleiades.stoa.org/places/599830,http://sws.geonames.org/256378/,distance,0.0,precise,"island",ISL
 http://pleiades.stoa.org/places/599829,http://sws.geonames.org/8133958/,distance,1.795,precise,"settlement",ADM3
@@ -1468,6 +1469,7 @@ http://pleiades.stoa.org/places/550496,http://sws.geonames.org/259973/,distance,
 http://pleiades.stoa.org/places/550491,http://sws.geonames.org/322277/,distance,0.75,precise,"river",STM
 http://pleiades.stoa.org/places/550463,http://sws.geonames.org/7503416/,distance,0.52,precise,"settlement",ANS
 http://pleiades.stoa.org/places/550463,http://sws.geonames.org/321658/,distance,0.46,precise,"settlement",PPL
+http://pleiades.stoa.org/places/550459,http://sws.geonames.org/9888125/,distance,0.854,precise,"settlement",ANS
 http://pleiades.stoa.org/places/550435,http://sws.geonames.org/265063/,distance,7.183,precise,"settlement",PPL
 http://pleiades.stoa.org/places/550434,http://sws.geonames.org/7503415/,distance,0.802,precise,"settlement",ANS
 http://pleiades.stoa.org/places/544357,http://sws.geonames.org/259806/,capgrid,0.0,unlocated,"false toponym",PPL
