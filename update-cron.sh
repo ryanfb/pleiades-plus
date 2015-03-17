@@ -3,7 +3,7 @@
 # needed for ssh-agent auth under cron on OS X
 declare -x SSH_AUTH_SOCK=$( find /tmp/com.apple.launchd.*/Listeners -user $(whoami) -type s | head -1 )
 
-rm -v *.csv.gz *.csv
+rm -fv *.csv.gz *.csv
 rm -rfv /tmp/geonames
 git checkout master
 git pull
