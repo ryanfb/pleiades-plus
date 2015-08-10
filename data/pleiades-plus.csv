@@ -2020,7 +2020,7 @@ http://pleiades.stoa.org/places/462410,http://sws.geonames.org/2523920/,distance
 http://pleiades.stoa.org/places/462402,http://sws.geonames.org/2523952/,distance,0.467,precise,"island",ISL
 http://pleiades.stoa.org/places/462388,http://sws.geonames.org/2523998/,distance,5.384,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/462387,http://sws.geonames.org/256632/,edh,895.398,precise,"station",PPL
-http://pleiades.stoa.org/places/462379,http://sws.geonames.org/2524155/,distance,1.086,precise,"settlement",PPLA3
+http://pleiades.stoa.org/places/462379,http://sws.geonames.org/2524155/,distance,0.081,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/462373,http://sws.geonames.org/2524039/,distance,0.567,precise,"island, settlement, temple",ANS
 http://pleiades.stoa.org/places/462372,http://sws.geonames.org/2524052/,distance,7.183,precise,"ekklesiasterion, settlement, theatre",RUIN
 http://pleiades.stoa.org/places/462311,http://sws.geonames.org/2562772/,bbox,0.0,related,"island",ISL
@@ -2748,6 +2748,7 @@ http://pleiades.stoa.org/places/300354630,http://sws.geonames.org/449531/,bbox,0
 http://pleiades.stoa.org/places/300354630,http://sws.geonames.org/118063/,bbox,0.0,rough,"settlement",PPL
 http://pleiades.stoa.org/places/300354627,http://sws.geonames.org/389308/,bbox,0.0,rough,"settlement",PPL
 http://pleiades.stoa.org/places/300354627,http://sws.geonames.org/174984/,bbox,0.0,rough,"settlement",PPL
+http://pleiades.stoa.org/places/300354627,http://sws.geonames.org/10526317/,bbox,0.0,rough,"settlement",STM
 http://pleiades.stoa.org/places/29811,http://sws.geonames.org/111822/,distance,0.996,precise,"settlement",PPLA
 http://pleiades.stoa.org/places/29802,http://sws.geonames.org/7103618/,distance,2.887,precise,"settlement",PPL
 http://pleiades.stoa.org/places/29802,http://sws.geonames.org/128234/,distance,1.499,precise,"settlement",PPLA
