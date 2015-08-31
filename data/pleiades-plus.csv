@@ -257,6 +257,7 @@ http://pleiades.stoa.org/places/89152,http://sws.geonames.org/2652382/,edh,0.881
 http://pleiades.stoa.org/places/89152,http://sws.geonames.org/2519234/,edh,1700.429,precise,"settlement, fort",PPLA3
 http://pleiades.stoa.org/places/89151,http://sws.geonames.org/2650946/,distance,0.091,precise,"fort",PPL
 http://pleiades.stoa.org/places/89150,http://sws.geonames.org/6693001/,edh,0.401,precise,"fort",PPL
+http://pleiades.stoa.org/places/89148,http://sws.geonames.org/8063585/,edh,0.588,precise,"fort",PPL
 http://pleiades.stoa.org/places/89146,http://sws.geonames.org/2653224/,edh,0.338,precise,"fort",PPL
 http://pleiades.stoa.org/places/89144,http://sws.geonames.org/2653222/,distance,1.212,precise,"fort",PPL
 http://pleiades.stoa.org/places/89143,http://sws.geonames.org/7302059/,distance,2.016,precise,"settlement",ADM4
@@ -363,8 +364,8 @@ http://pleiades.stoa.org/places/857062,http://sws.geonames.org/741531/,distance,
 http://pleiades.stoa.org/places/857024,http://sws.geonames.org/740264/,distance,0.682,precise,"settlement",PPLA
 http://pleiades.stoa.org/places/857024,http://sws.geonames.org/740263/,distance,4.753,precise,"settlement",ADM1
 http://pleiades.stoa.org/places/857024,http://sws.geonames.org/6299734/,distance,2.908,precise,"settlement",AIRQ
-http://pleiades.stoa.org/places/857018,http://sws.geonames.org/752015/,distance,0.728,precise,"settlement, temple, fort",PPLA
-http://pleiades.stoa.org/places/857018,http://sws.geonames.org/745949/,edh,96.913,precise,"settlement, temple, fort",PPL
+http://pleiades.stoa.org/places/857018,http://sws.geonames.org/752015/,distance,0.456,precise,"settlement, temple, fort",PPLA
+http://pleiades.stoa.org/places/857018,http://sws.geonames.org/745949/,edh,96.734,precise,"settlement, temple, fort",PPL
 http://pleiades.stoa.org/places/854743,http://sws.geonames.org/709161/,distance,1.039,precise,"settlement",PPLA2
 http://pleiades.stoa.org/places/845084,http://sws.geonames.org/745583/,edh,2.665,precise,"bridge, settlement",PPLA3
 http://pleiades.stoa.org/places/845049,http://sws.geonames.org/742704/,edh,0.22,precise,"settlement",PPLA3
