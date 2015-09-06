@@ -1386,6 +1386,7 @@ http://pleiades.stoa.org/places/570598,http://sws.geonames.org/262438/,distance,
 http://pleiades.stoa.org/places/570595,http://sws.geonames.org/262446/,distance,4.268,precise,"settlement",PPL
 http://pleiades.stoa.org/places/570590,http://sws.geonames.org/262488/,distance,0.288,precise,"settlement",PPL
 http://pleiades.stoa.org/places/570577,http://sws.geonames.org/9062330/,bbox,0.0,related,"peninsula, region",ISL
+http://pleiades.stoa.org/places/570577,http://sws.geonames.org/6697807/,bbox,0.0,related,"peninsula, region",ADM1
 http://pleiades.stoa.org/places/570577,http://sws.geonames.org/255620/,bbox,0.0,related,"peninsula, region",RGN
 http://pleiades.stoa.org/places/570576,http://sws.geonames.org/255623/,distance,0.038,precise,"settlement",PPL
 http://pleiades.stoa.org/places/570575,http://sws.geonames.org/255624/,distance,1.549,precise,"settlement",PPL
