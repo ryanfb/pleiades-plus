@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.2
+sudo: false
+before_script:
+  - gem install csvlint
+script: csvlint data/pleiades-plus.csv
