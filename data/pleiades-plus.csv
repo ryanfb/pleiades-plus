@@ -2813,6 +2813,8 @@ http://pleiades.stoa.org/places/383570,http://sws.geonames.org/3179097/,distance
 http://pleiades.stoa.org/places/383564,http://sws.geonames.org/6540671/,distance,1.282,precise,"settlement",ADM3
 http://pleiades.stoa.org/places/383545,http://sws.geonames.org/3182634/,edh,22.139,rough,"station",PPLA3
 http://pleiades.stoa.org/places/383543,http://sws.geonames.org/3183477/,distance,0.18,precise,"river",STM
+http://pleiades.stoa.org/places/376816,http://sws.geonames.org/80628/,capgrid,0.0,unlocated,"unlocated",PPL
+http://pleiades.stoa.org/places/376805,http://sws.geonames.org/83906/,capgrid,0.0,unlocated,"unlocated",RUIN
 http://pleiades.stoa.org/places/373879,http://sws.geonames.org/89183/,distance,1.213,precise,"circus, settlement, amphitheatre, port",PPL
 http://pleiades.stoa.org/places/373879,http://sws.geonames.org/81282/,bbox,0.0,precise,"circus, settlement, amphitheatre, port",RUIN
 http://pleiades.stoa.org/places/373844,http://sws.geonames.org/80503/,distance,1.103,precise,"settlement",RUIN
