@@ -109,7 +109,7 @@ puts "pleiades_url,geonames_url,match_type,distance,pleiades_locationPrecision,p
 
 $stderr.puts "Parsing Pleiades places..."
 CSV.foreach(places_csv, :headers => true) do |row|
-	places[row["id"]] = row.to_hash
+	places[row["path"]] = row.to_hash
 end
 
 $stderr.puts "Parsing Pleiades names..."
