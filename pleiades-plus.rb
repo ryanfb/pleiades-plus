@@ -95,7 +95,7 @@ CSV.foreach(names_csv, :headers => true) do |row|
 		places[row["pid"]]["names"] << row.to_hash
 	end
 
-	[row["nameAttested"], row["nameTransliterated"]].each do |name|
+	[row["title"], row["nameAttested"], row["nameTransliterated"]].each do |name|
 		add_resource_name(pleiades_names, name, row["pid"])
 	end
 end
