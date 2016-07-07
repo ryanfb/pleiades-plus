@@ -3804,7 +3804,7 @@ http://pleiades.stoa.org/places/128460,http://sws.geonames.org/2761368/,distance
 http://pleiades.stoa.org/places/128460,http://sws.geonames.org/2761367/,distance,0.311,precise,"settlement",ADM1
 http://pleiades.stoa.org/places/128460,http://sws.geonames.org/2761333/,distance,0.525,precise,"settlement",ADM2
 http://pleiades.stoa.org/places/128384,http://sws.geonames.org/2769013/,distance,0.622,precise,"settlement",PPLA3
-http://pleiades.stoa.org/places/128376,http://sws.geonames.org/8224652/,distance,0.478,precise,"villa, bath, arch, settlement, amphitheatre, architecturalcomplex, fort",ANS
+http://pleiades.stoa.org/places/128376,http://sws.geonames.org/8224652/,bbox,0.0,precise,"villa, bath, arch, settlement, amphitheatre, fort",ANS
 http://pleiades.stoa.org/places/12766857,http://sws.geonames.org/10292643/,distance,0.035,precise,"theatre",HSTS
 http://pleiades.stoa.org/places/12504073,http://sws.geonames.org/296140/,distance,0.086,precise,"settlement",HLL
 http://pleiades.stoa.org/places/123072,http://sws.geonames.org/6472727/,capgrid,0.0,unlocated,"unlocated",HTL
