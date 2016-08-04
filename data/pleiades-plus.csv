@@ -138,8 +138,8 @@ http://pleiades.stoa.org/places/922740,http://sws.geonames.org/140452/,bbox,0.0,
 http://pleiades.stoa.org/places/922711,http://sws.geonames.org/118472/,bbox,0.0,precise,"settlement",PPL
 http://pleiades.stoa.org/places/922706,http://sws.geonames.org/449583/,distance,7.358,precise,"settlement",ADM2
 http://pleiades.stoa.org/places/922706,http://sws.geonames.org/115019/,distance,4.836,precise,"settlement",PPLA
-http://pleiades.stoa.org/places/922695,http://sws.geonames.org/110836/,bbox,0.0,precise,"settlement, temple",ANS
-http://pleiades.stoa.org/places/922693,http://sws.geonames.org/121340/,bbox,0.0,precise,"fort, settlement, temple, hill",ANS
+http://pleiades.stoa.org/places/922695,http://sws.geonames.org/110836/,bbox,0.0,precise,"tomb, settlement, architecturalcomplex",ANS
+http://pleiades.stoa.org/places/922693,http://sws.geonames.org/121340/,bbox,0.0,precise,"hill, tomb, settlement, architecturalcomplex, fort",ANS
 http://pleiades.stoa.org/places/922657,http://sws.geonames.org/131597/,bbox,0.0,rough,"river",STM
 http://pleiades.stoa.org/places/922627,http://sws.geonames.org/139817/,distance,4.515,precise,"settlement",PPLA
 http://pleiades.stoa.org/places/922617,http://sws.geonames.org/449586/,distance,7.242,precise,"wall, settlement",ADM2
@@ -283,11 +283,12 @@ http://pleiades.stoa.org/places/890432541,http://sws.geonames.org/128476/,bbox,0
 http://pleiades.stoa.org/places/890432540,http://sws.geonames.org/94823/,bbox,0.0,rough,"settlement",ADM1
 http://pleiades.stoa.org/places/890432540,http://sws.geonames.org/94822/,bbox,0.0,rough,"settlement",ADM2
 http://pleiades.stoa.org/places/884204,http://sws.geonames.org/119505/,distance,0.218,precise,"settlement",PPLA
+http://pleiades.stoa.org/places/884189,http://sws.geonames.org/174746/,distance,4.108,precise,"river",PPL
 http://pleiades.stoa.org/places/884166,http://sws.geonames.org/174875/,distance,1.283,precise,"fort",PPLA
 http://pleiades.stoa.org/places/884119,http://sws.geonames.org/449465/,distance,0.584,precise,"settlement",ADM2
 http://pleiades.stoa.org/places/884119,http://sws.geonames.org/143083/,distance,0.401,precise,"settlement",PPLA
 http://pleiades.stoa.org/places/884116,http://sws.geonames.org/143534/,distance,0.631,precise,"settlement",PPLA2
-http://pleiades.stoa.org/places/884113,http://sws.geonames.org/388654/,distance,1.266,precise,"settlement",PPLH
+http://pleiades.stoa.org/places/884113,http://sws.geonames.org/388654/,distance,1.266,precise,"settlement",PPL
 http://pleiades.stoa.org/places/884111,http://sws.geonames.org/144616/,distance,1.234,precise,"settlement",PPLA2
 http://pleiades.stoa.org/places/880325202,http://sws.geonames.org/6537770/,distance,0.0,precise,"settlement-modern",ADM3
 http://pleiades.stoa.org/places/880325202,http://sws.geonames.org/2523347/,distance,0.297,precise,"settlement-modern",PPLA3
@@ -1166,7 +1167,7 @@ http://pleiades.stoa.org/places/589802,http://sws.geonames.org/258763/,distance,
 http://pleiades.stoa.org/places/589797,http://sws.geonames.org/251326/,distance,3.644,precise,"island",ISL
 http://pleiades.stoa.org/places/589796,http://sws.geonames.org/8133944/,distance,5.701,precise,"urban, theatre, church, settlement, architecturalcomplex",ADM3
 http://pleiades.stoa.org/places/589796,http://sws.geonames.org/261975/,distance,0.132,precise,"urban, theatre, church, settlement, architecturalcomplex",RUIN
-http://pleiades.stoa.org/places/589772,http://sws.geonames.org/262755/,bbox,0.0,precise,"settlement, temple",PPL
+http://pleiades.stoa.org/places/589772,http://sws.geonames.org/262755/,bbox,0.0,precise,"settlement, fort",PPL
 http://pleiades.stoa.org/places/589763,http://sws.geonames.org/251354/,distance,1.448,precise,"archipelago, island",ISLS
 http://pleiades.stoa.org/places/589755,http://sws.geonames.org/263159/,distance,0.131,precise,"island",ISL
 http://pleiades.stoa.org/places/589755,http://sws.geonames.org/10859319/,distance,1.871,precise,"island",PPLQ
@@ -2964,9 +2965,6 @@ http://pleiades.stoa.org/places/216748,http://sws.geonames.org/9534984/,distance
 http://pleiades.stoa.org/places/216748,http://sws.geonames.org/682814/,distance,0.464,precise,"fort",PPL
 http://pleiades.stoa.org/places/216744,http://sws.geonames.org/673921/,distance,1.908,precise,"settlement, port",PPLA2
 http://pleiades.stoa.org/places/216721,http://sws.geonames.org/733722/,distance,0.868,precise,"settlement",PPL
-http://pleiades.stoa.org/places/216717,http://sws.geonames.org/725564/,bbox,0.0,rough,"river",PPL
-http://pleiades.stoa.org/places/216717,http://sws.geonames.org/725563/,bbox,0.0,rough,"river",STM
-http://pleiades.stoa.org/places/216717,http://sws.geonames.org/6460840/,bbox,0.0,rough,"river",ADM3
 http://pleiades.stoa.org/places/216706,http://sws.geonames.org/726963/,distance,0.446,precise,"settlement",PPL
 http://pleiades.stoa.org/places/211425283,http://sws.geonames.org/96868/,bbox,0.0,rough,"settlement",ANS
 http://pleiades.stoa.org/places/211425280,http://sws.geonames.org/69366/,bbox,0.0,rough,"settlement",ADMD
@@ -3013,9 +3011,9 @@ http://pleiades.stoa.org/places/197555,http://sws.geonames.org/3188763/,distance
 http://pleiades.stoa.org/places/197553,http://sws.geonames.org/3197205/,bbox,0.0,rough,"river",STM
 http://pleiades.stoa.org/places/197551,http://sws.geonames.org/3202215/,distance,0.7,precise,"fort",PPL
 http://pleiades.stoa.org/places/197526,http://sws.geonames.org/3189810/,distance,0.067,precise,"settlement",PPLA2
-http://pleiades.stoa.org/places/197524,http://sws.geonames.org/6473679/,distance,2.366,precise,"settlement, temple",HTL
-http://pleiades.stoa.org/places/197524,http://sws.geonames.org/3190261/,distance,0.213,precise,"settlement, temple",PPLA
-http://pleiades.stoa.org/places/197524,http://sws.geonames.org/3190259/,distance,4.854,precise,"settlement, temple",ADM2
+http://pleiades.stoa.org/places/197524,http://sws.geonames.org/6473679/,distance,2.366,precise,"settlement, architecturalcomplex",HTL
+http://pleiades.stoa.org/places/197524,http://sws.geonames.org/3190261/,distance,0.213,precise,"settlement, architecturalcomplex",PPLA
+http://pleiades.stoa.org/places/197524,http://sws.geonames.org/3190259/,distance,4.854,precise,"settlement, architecturalcomplex",ADM2
 http://pleiades.stoa.org/places/197523,http://sws.geonames.org/3046526/,distance,1.182,precise,"settlement",PPLA
 http://pleiades.stoa.org/places/197505,http://sws.geonames.org/3191055/,distance,0.406,precise,"settlement, port",PPLA2
 http://pleiades.stoa.org/places/197505,http://sws.geonames.org/11049293/,distance,0.346,precise,"settlement, port",ADM2
@@ -3030,8 +3028,8 @@ http://pleiades.stoa.org/places/197488,http://sws.geonames.org/11054720/,distanc
 http://pleiades.stoa.org/places/197483,http://sws.geonames.org/2537763/,distance,7.412,precise,"river",PPL
 http://pleiades.stoa.org/places/197468,http://sws.geonames.org/3200823/,distance,0.649,precise,"station",PPL
 http://pleiades.stoa.org/places/197457,http://sws.geonames.org/3188886/,distance,2.062,precise,"settlement",PPLA
-http://pleiades.stoa.org/places/197448,http://sws.geonames.org/9255227/,distance,0.353,precise,"theatre, temple, arch, settlement, amphitheatre, port",HTL
-http://pleiades.stoa.org/places/197448,http://sws.geonames.org/3192224/,distance,0.291,precise,"theatre, temple, arch, settlement, amphitheatre, port",PPLA2
+http://pleiades.stoa.org/places/197448,http://sws.geonames.org/9255227/,distance,0.353,precise,"theatre, temple-2, arch, settlement, amphitheatre, port",HTL
+http://pleiades.stoa.org/places/197448,http://sws.geonames.org/3192224/,distance,0.291,precise,"theatre, temple-2, arch, settlement, amphitheatre, port",PPLA2
 http://pleiades.stoa.org/places/197442,http://sws.geonames.org/3293443/,distance,0.46,precise,"settlement",PPLL
 http://pleiades.stoa.org/places/197442,http://sws.geonames.org/3193277/,distance,0.045,precise,"settlement",PPL
 http://pleiades.stoa.org/places/197438,http://sws.geonames.org/3202942/,distance,0.4,precise,"settlement",PPLA2
@@ -3158,7 +3156,7 @@ http://pleiades.stoa.org/places/177639,http://sws.geonames.org/7285137/,distance
 http://pleiades.stoa.org/places/177639,http://sws.geonames.org/2657891/,distance,0.033,precise,"bridge, settlement",PPLA2
 http://pleiades.stoa.org/places/177631,http://sws.geonames.org/6442118/,distance,0.168,precise,"settlement",ADM4
 http://pleiades.stoa.org/places/177631,http://sws.geonames.org/2974693/,distance,0.078,precise,"settlement",PPL
-http://pleiades.stoa.org/places/177630,http://sws.geonames.org/2658576/,distance,0.371,precise,"settlement",PPLA
+http://pleiades.stoa.org/places/177630,http://sws.geonames.org/2658576/,distance,0.594,precise,"settlement",PPL
 http://pleiades.stoa.org/places/177624,http://sws.geonames.org/8717927/,distance,0.277,precise,"settlement",ADMD
 http://pleiades.stoa.org/places/177624,http://sws.geonames.org/7287186/,distance,0.29,precise,"settlement",ADM3
 http://pleiades.stoa.org/places/177624,http://sws.geonames.org/6458779/,distance,0.231,precise,"settlement",ADM2
@@ -3243,8 +3241,8 @@ http://pleiades.stoa.org/places/167719,http://sws.geonames.org/6454095/,distance
 http://pleiades.stoa.org/places/167719,http://sws.geonames.org/2969284/,distance,1.134,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/167718,http://sws.geonames.org/6453882/,distance,0.217,precise,"settlement",ADM4
 http://pleiades.stoa.org/places/167718,http://sws.geonames.org/2971053/,distance,0.861,precise,"settlement",PPLA2
-http://pleiades.stoa.org/places/167717,http://sws.geonames.org/6454573/,distance,1.513,precise,"settlement, temple, theatre",ADM4
-http://pleiades.stoa.org/places/167717,http://sws.geonames.org/2996944/,distance,2.418,precise,"settlement, temple, theatre",PPLA
+http://pleiades.stoa.org/places/167717,http://sws.geonames.org/6454573/,distance,1.513,precise,"sanctuary, settlement, theatre",ADM4
+http://pleiades.stoa.org/places/167717,http://sws.geonames.org/2996944/,distance,2.418,precise,"sanctuary, settlement, theatre",PPLA
 http://pleiades.stoa.org/places/167716,http://sws.geonames.org/6430075/,distance,0.139,precise,"settlement",ADM4
 http://pleiades.stoa.org/places/167716,http://sws.geonames.org/3021435/,distance,0.395,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/167701,http://sws.geonames.org/3025033/,distance,0.236,precise,"station",PPL
@@ -3637,8 +3635,8 @@ http://pleiades.stoa.org/places/109254,http://sws.geonames.org/6437857/,distance
 http://pleiades.stoa.org/places/109254,http://sws.geonames.org/2975967/,distance,0.226,precise,"settlement",PPLA3
 http://pleiades.stoa.org/places/109249,http://sws.geonames.org/6614026/,distance,0.305,precise,"settlement, villa, bath",ADM4
 http://pleiades.stoa.org/places/109249,http://sws.geonames.org/2986999/,distance,0.797,precise,"settlement, villa, bath",PPL
-http://pleiades.stoa.org/places/109248,http://sws.geonames.org/6434690/,distance,0.352,precise,"temple, bath",ADM4
-http://pleiades.stoa.org/places/109248,http://sws.geonames.org/2987001/,distance,0.346,precise,"temple, bath",PPL
+http://pleiades.stoa.org/places/109248,http://sws.geonames.org/6434690/,distance,0.352,precise,"temple-2, bath",ADM4
+http://pleiades.stoa.org/places/109248,http://sws.geonames.org/2987001/,distance,0.346,precise,"temple-2, bath",PPL
 http://pleiades.stoa.org/places/109247,http://sws.geonames.org/6438886/,distance,1.793,precise,"settlement",ADM4
 http://pleiades.stoa.org/places/109247,http://sws.geonames.org/2987270/,distance,2.049,precise,"settlement",PPL
 http://pleiades.stoa.org/places/109236,http://sws.geonames.org/6456407/,distance,0.352,precise,"settlement",ADM4
