@@ -478,6 +478,8 @@ http://pleiades.stoa.org/places/756538,http://sws.geonames.org/359743/,distance,
 http://pleiades.stoa.org/places/756532,http://sws.geonames.org/360296/,distance,1.239,precise,"settlement",PPL
 http://pleiades.stoa.org/places/756512,http://sws.geonames.org/361885/,distance,0.907,precise,"sanctuary, settlement, cemetery, temple-2",RUIN
 http://pleiades.stoa.org/places/750203268,http://sws.geonames.org/8354433/,distance,0.011,precise,"temple-2",TMPL
+http://pleiades.stoa.org/places/747563988,http://sws.geonames.org/6430081/,distance,0.034,precise,"sanctuary, settlement, settlement-modern",ADM4
+http://pleiades.stoa.org/places/747563988,http://sws.geonames.org/3019885/,distance,0.292,precise,"sanctuary, settlement, settlement-modern",PPL
 http://pleiades.stoa.org/places/746815,http://sws.geonames.org/351820/,distance,7.499,related,"mountain",MT
 http://pleiades.stoa.org/places/746813,http://sws.geonames.org/347930/,distance,0.0,precise,"peninsula, region",DSRT
 http://pleiades.stoa.org/places/746792,http://sws.geonames.org/356870/,distance,1.037,precise,"settlement",OAS
@@ -2342,6 +2344,8 @@ http://pleiades.stoa.org/places/373757,http://sws.geonames.org/88319/,bbox,0.0,p
 http://pleiades.stoa.org/places/373749,http://sws.geonames.org/89055/,distance,0.195,precise,"settlement",PPLA
 http://pleiades.stoa.org/places/373742,http://sws.geonames.org/88533/,distance,4.963,precise,"settlement",PPL
 http://pleiades.stoa.org/places/373732,http://sws.geonames.org/81584/,bbox,0.0,related,"settlement, port",PPL
+http://pleiades.stoa.org/places/364003,http://sws.geonames.org/2216829/,distance,0.0,precise,"settlement",WLL
+http://pleiades.stoa.org/places/364003,http://sws.geonames.org/2210028/,distance,1.097,precise,"settlement",RUIN
 http://pleiades.stoa.org/places/363962,http://sws.geonames.org/2213641/,distance,2.584,precise,"temple",RUIN
 http://pleiades.stoa.org/places/363935,http://sws.geonames.org/2213641/,distance,6.973,precise,"station",RUIN
 http://pleiades.stoa.org/places/363924,http://sws.geonames.org/2213641/,distance,0.743,precise,"settlement",RUIN
