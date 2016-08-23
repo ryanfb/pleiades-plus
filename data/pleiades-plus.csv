@@ -1914,7 +1914,7 @@ http://pleiades.stoa.org/places/501366,http://sws.geonames.org/736572/,distance,
 http://pleiades.stoa.org/places/501365,http://sws.geonames.org/736681/,bbox,0.0,related,"peninsula",MT
 http://pleiades.stoa.org/places/501365,http://sws.geonames.org/736629/,bbox,0.0,related,"peninsula",PEN
 http://pleiades.stoa.org/places/501365,http://sws.geonames.org/736572/,bbox,0.0,related,"peninsula",ADM1
-http://pleiades.stoa.org/places/501347,http://sws.geonames.org/736893/,distance,0.281,precise,"wall, settlement, fort",PPL
+http://pleiades.stoa.org/places/501347,http://sws.geonames.org/736893/,distance,0.281,precise,"city-wall, settlement, fort",PPL
 http://pleiades.stoa.org/places/501346,http://sws.geonames.org/736924/,distance,0.297,precise,"settlement",PPL
 http://pleiades.stoa.org/places/501337,http://sws.geonames.org/747503/,distance,0.273,precise,"settlement",PPLA2
 http://pleiades.stoa.org/places/501323,http://sws.geonames.org/736676/,distance,4.387,precise,"settlement",PPL
@@ -2100,7 +2100,7 @@ http://pleiades.stoa.org/places/462236,http://sws.geonames.org/6541871/,distance
 http://pleiades.stoa.org/places/462236,http://sws.geonames.org/6299553/,distance,0.35,precise,"settlement",STNM
 http://pleiades.stoa.org/places/462236,http://sws.geonames.org/2524819/,distance,0.519,precise,"settlement",PPLA2
 http://pleiades.stoa.org/places/462235,http://sws.geonames.org/10402655/,distance,6.741,precise,"river",HSTS
-http://pleiades.stoa.org/places/462234,http://sws.geonames.org/10402655/,distance,0.172,precise,"wall, settlement, cistern, plaza",HSTS
+http://pleiades.stoa.org/places/462234,http://sws.geonames.org/10402655/,distance,0.172,precise,"city-wall, settlement, cistern, plaza",HSTS
 http://pleiades.stoa.org/places/462228,http://sws.geonames.org/6539159/,distance,0.321,precise,"settlement, temple-2",ADM3
 http://pleiades.stoa.org/places/462228,http://sws.geonames.org/2523425/,distance,0.286,precise,"settlement, temple-2",PPLA3
 http://pleiades.stoa.org/places/462225,http://sws.geonames.org/6539871/,distance,2.852,precise,"settlement",ADM3
